@@ -1,11 +1,14 @@
 {
     "$schema": "https://mintlify.com/schema.json",
     "name": "zNyx",
-    "logo": {
-        "light": "/logo/light.png",
-        "dark": "/logo/dark.png"
+    "metadata": {
+        "og:image": "/image/og-image.webp"
     },
-    "favicon": "/favicon.png",
+    "logo": {
+        "light": "/image/light.png",
+        "dark": "/image/dark.png"
+    },
+    "favicon": "/image/favicon.png",
     "colors": {
         "primary": "#007AFF",
         "light": "#3b96ff",
