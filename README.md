@@ -9,8 +9,8 @@ O **zNyx** é a ferramenta definitiva para elevar o padrão da sua comunidade de
 Mais do que um bot, é uma solução completa para profissionalizar a comunicação e monetização do seu projeto.
 
 ### 🔗 Links Rápidos
-*   [**Planos & Preços**](/plans): Conheça as vantagens e recursos exclusivos dos planos Plus e Pro.
-*   [**Comandos**](/commands/announcements): Explore a documentação técnica de todas as funcionalidades.
+*   **Planos & Preços**: Conheça as vantagens e recursos exclusivos dos planos Plus e Pro.
+*   **Comandos**: Explore a documentação técnica de todas as funcionalidades.
 *   [**Suporte & Contato**](https://discord.gg/Xbe2vm9kGJ): Entre em contato diretamente comigo para dúvidas ou suporte.
 
 ## ✨ Funcionalidades
