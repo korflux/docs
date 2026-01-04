@@ -30,12 +30,15 @@
         {
             "group": "Comandos",
             "pages": [
+                "commands/defaults",
                 "commands/announcements",
+                "commands/reviews",
+                "commands/connections",
                 "commands/giveaways",
-                "commands/tickets",
                 "commands/status",
                 "commands/suggestions",
-                "commands/integrations"
+                "commands/tickets",
+                "commands/topics"
             ]
         }
     ],

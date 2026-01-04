@@ -1,0 +1,125 @@
+---
+title: Conexões (n8n)
+sidebarTitle: Conexões
+description: 'Integração com n8n para agentes de IA e automações'
+---
+
+<Note>Este módulo é exclusivo do **Plano Pro**.</Note>
+
+Transforme o zNyx em um gateway para automações externas. Conecte seus canais a fluxos inteligentes, bancos de dados ou agentes de IA.
+
+## 📡 `/conexao`
+<span className="api-method-tag post">PRO</span>
+
+Gerencia a ponte entre canais de texto do Discord e Webhooks externos (n8n).
+
+### Subcomandos
+
+| Subcomando | Descrição |
+| :--- | :--- |
+| `adicionar` | Cria uma nova conexão monitorada em um canal. |
+| `remover` | Encerra a conexão e para de enviar dados. |
+| `listar` | Exibe todas as conexões ativas no servidor. |
+| `configurar` | Exibe o tutorial rápido e schema JSON. |
+
+### Argumentos (Adicionar)
+
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `canal` | Canal (#) | **Obrigatório** | O canal de texto que será monitorado. |
+| `webhook` | Link (URL) | **Obrigatório** | URL do Webhook do n8n (Método POST). |
+| `modo` | Seleção | **Obrigatório** | Define o gatilho de envio (ver abaixo). |
+
+**Modos de Operação:**
+* `Todas as mensagens`: Envia tudo o que é falado. Ideal para logs, auditoria ou IAs que leem contexto geral.
+* `Apenas menções`: Envia apenas quando marcam o bot. Ideal para Chatbots de suporte direto.
+
+---
+
+## ⚙️ Guia de Integração: n8n
+
+Para criar seus agentes de IA, siga esta configuração exata no n8n.
+
+### 1. Recebendo Dados (Webhook Node)
+
+Configure o nó **Webhook** no n8n para receber as mensagens do zNyx:
+
+| Configuração | Valor |
+| :--- | :--- |
+| **Webhook Path** | Livre (use um código seguro/difícil) |
+| **Method** | `POST` |
+| **Authentication** | `None` |
+| **Respond** | `Immediately` |
+
+<Warning>
+**Importante!** O modo `Immediately` é essencial para evitar timeout no Discord.
+</Warning>
+
+**Payload Recebido (JSON):**
+
+O zNyx enviará a seguinte estrutura para o seu webhook:
+
+```json
+{
+  "messageId": "123456789...",
+  "userId": "987654321...",
+  "username": "NomeDoUsuario",
+  "displayName": "ApelidoNoServidor",
+  "content": "Texto da mensagem enviada",
+  "channelId": "ID do Canal",
+  "guildId": "ID do Servidor",
+  "timestamp": "ISO Date",
+  "attachments": []
+}
+```
+
+---
+
+### 2. Enviando Respostas
+
+Existem duas formas de devolver a resposta para o Discord:
+
+<Tabs>
+  <Tab title="Via Webhook (Simples)">
+
+Mais rápido de configurar, mas a mensagem aparece como um "Bot Webhook" genérico.
+
+**Nó:** HTTP Request
+| Configuração | Valor |
+| :--- | :--- |
+| **Method** | `POST` |
+| **URL** | Cole o Webhook do Canal Discord |
+| **Authentication** | `None` |
+| **Send Body** | Ativado (`JSON`) |
+
+**JSON:**
+```json
+{ "content": "Resposta do agente" }
+```
+
+<Info>
+**Como criar o Webhook:** Vá em `Config. do Canal` → `Integrações` → `Webhooks` → `Novo`.
+</Info>
+
+  </Tab>
+  <Tab title="Como o Bot (Recomendado)">
+
+Mantém a identidade do bot e permite usar "Reply" (citar mensagem).
+
+**Nó:** Discord
+| Configuração | Valor |
+| :--- | :--- |
+| **Connection Type** | `Bot Token` |
+| **Credential** | Configure o Token do seu Bot |
+| **Resource** | `Message` |
+| **Operation** | `Send` |
+| **Send To** | `Channel` |
+| **Channel** | Use a expressão `{{ $json.channelId }}` |
+| **Message** | O texto da resposta do agente |
+
+**Para dar Reply (Citar a mensagem original):**
+1. Vá em `Options` → `Add Option` → `Message to Reply to`
+2. Use a expressão: `{{ $json.body.messageId }}`
+
+  </Tab>
+</Tabs>

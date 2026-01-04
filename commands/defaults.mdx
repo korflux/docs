@@ -1,0 +1,36 @@
+---
+title: Configuração Global
+sidebarTitle: Padrões
+description: 'Identidade visual unificada para todos os embeds'
+---
+
+<Note>Disponível nos Planos: **Plus** (parcial) e **Pro** (completo)</Note>
+
+Defina cores e textos padrão que serão aplicados automaticamente em todos os embeds do bot. Uma única configuração que garante consistência visual e economiza tempo.
+
+## ⚙️ `/padrao`
+
+Gerencia os valores padrão do servidor.
+
+### Subcomandos
+
+| Subcomando | Descrição | Exemplo |
+| :--- | :--- | :--- |
+| `cor` | Define a cor lateral padrão (HEX). | `/padrao cor valor:#FF00AA` |
+| `rodape` <Tooltip tip="Recurso exclusivo do Plano Pro">**PRO**</Tooltip> | Define o texto do rodapé padrão. | `/padrao rodape texto:Rede zNyx - O melhor survival` |
+| `ver` | Mostra as configurações atuais e a versão do bot. | `/padrao ver` |
+
+### Argumentos
+
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `valor` | Texto (HEX) | **Obrigatório** (cor) | Cor em formato hexadecimal (ex: `#FF00AA`). |
+| `texto` | Texto | **Obrigatório** (rodapé) | Texto que aparecerá no rodapé dos embeds. |
+
+<Info>
+**Dica de Power User:** Use o valor especial `padrao#` em qualquer comando individual para forçar o uso dessa configuração global.
+</Info>
+
+<Warning>
+No **Plano Plus**, apenas a cor pode ser personalizada. O rodapé manterá sempre a assinatura do zNyx: *"Desenvolvido por znyx.com.br"*.
+</Warning>

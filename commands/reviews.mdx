@@ -1,0 +1,55 @@
+---
+title: Avaliações
+description: 'Sistema de feedback e prova social para sua comunidade'
+---
+
+<Note>Este módulo é exclusivo do **Plano Pro**.</Note>
+
+Crie um canal de "Prova Social" e monitore a qualidade do atendimento da sua equipe. Os membros podem dar notas (1 a 5 estrelas) e deixar comentários públicos.
+
+## ⭐ `/avaliacao`
+<span className="api-method-tag post">PRO</span>
+
+Gerencia o sistema de feedbacks.
+
+### Subcomandos
+
+| Subcomando | Descrição |
+| :--- | :--- |
+| `configurar` | Define canais, permissões e aparência do sistema. |
+| `iniciar` | Envia o painel interativo no canal configurado. |
+| `status` | Mostra as configurações atuais do sistema. |
+
+---
+
+### Configuração (`/avaliacao configurar`)
+
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `canal_embed` | Canal (#) | **Obrigatório** | Onde ficará o painel fixo de "Deixe sua avaliação". |
+| `canal_avaliacoes` | Canal (#) | **Obrigatório** | Onde as avaliações recebidas serão postadas publicamente. |
+| `cargos_staff` | Cargo (@) | **Obrigatório** | Menção dos cargos que podem responder avaliações (ex: @Admin, @Mod). |
+| `cargos_avaliadores` | Cargo (@) | Opcional | Menção dos cargos que podem enviar avaliações (vazio = todos podem). |
+| `anonimo` | Booleano | Opcional | Se `True`, oculta quem enviou a avaliação. |
+| `texto_embed` | Texto | Opcional | Texto personalizado do painel principal. |
+| `cor` | Texto (HEX) | Opcional | Cor da lateral do embed. |
+| `rodape` | Texto | Opcional | Texto pequeno no rodapé. |
+| `imagem` | Link (URL) | Opcional | Banner para o painel de avaliação. |
+
+---
+
+## 💬 `/responder`
+<span className="api-method-tag patch">PRO</span>
+
+Mostre que você se importa. A staff pode responder publicamente a uma avaliação, criando engajamento e confiança.
+
+### Argumentos
+
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `avaliacao_id` | ID | **Obrigatório** | ID da mensagem da avaliação recebida (Ative o Modo Desenvolvedor). |
+| `resposta` | Texto | **Obrigatório** | Texto da resposta oficial da equipe (ex: "Obrigado pelo feedback!"). |
+
+<Info>
+**Dica de Gestão:** Use as avaliações para medir o NPS (Net Promoter Score) do seu servidor e bonificar staffs com melhores notas.
+</Info>

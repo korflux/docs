@@ -8,20 +8,21 @@ O **zNyx** é a ferramenta definitiva para elevar o padrão da sua comunidade de
 
 Mais do que um bot, é uma solução completa para profissionalizar a comunicação e monetização do seu projeto.
 
-*   [**Suporte & Contato**](https://discord.gg/3Mz97UjDta): Entre em contato diretamente comigo para dúvidas ou suporte.
+* [**Suporte & Contato**](https://discord.gg/3Mz97UjDta): Entre em contato diretamente comigo para dúvidas ou suporte.
 
 ## ✨ Funcionalidades
 
 Uma visão geral de tudo que o zNyx oferece para otimizar sua operação:
 
-- **Anúncios e Monetização**: Crie comunicados visuais com embeds personalizados, envie cobranças de PIX facilitadas e envie anúncios de descontos facilitados.
+- **Anúncios e Monetização**: Crie comunicados visuais com embeds personalizados, gere cobranças de PIX facilitadas e cards de promoções profissionais.
 - **Sorteios Seguros**: Sistema completo com requisitos de cargos, reroll inteligente e proteção anti-fraude para contas novas.
 - **Sistema de Tickets**: Atendimento privado e organizado por categorias, com geração automática de logs (transcripts) para auditoria.
 - **Monitoramento em Tempo Real**: Painéis de status que mostram ping e jogadores online dos seus servidores, com atualização automática.
 - **Integração com n8n (IA)**: Conecte canais do Discord a fluxos de automação externos e agentes de Inteligência Artificial via Webhooks.
 - **Sugestões e Votação**: Canal dedicado para feedback da comunidade com sistema de aprovação/reprovação pela staff.
-- **Avaliações**: Coleta de feedbacks e prova social, permitindo respostas públicas da equipe.
-- **Organização de Tópicos**: Transformação automática de mensagens em threads para manter canais de mídia e divulgação limpos e organizados.
+- **Avaliações**: Coleta de feedbacks e prova social, com controle de quem pode avaliar e respostas públicas da equipe.
+- **Configuração Global**: Defina cores e rodapés padrão para manter a identidade visual da sua marca em todos os comandos.
+- **Organização de Tópicos**: Transformação automática de mensagens em threads para manter canais de mídia e divulgação limpos.
 
 ---
 
@@ -45,10 +46,13 @@ Confira a matriz completa de funcionalidades e escolha a que melhor se adapta à
 | **Suporte & SLA** | | |
 | Suporte via Discord | 24h Response Time | ⚡ **2h Response Time** |
 | Uptime Garantido | 99,9% | 99,9% |
-| Auto-Restart | ✅ | ✅ |
+| Auto-Restart (Watchdog) | ✅ | ✅ |
 | Suporte a Automação (n8n) | ❌ | ✅ |
 | **Identidade & Branding** | | |
-| Identidade Visual (Embeds) | WhiteLabel Parcial* | 🎨 **WhiteLabel Completo** |
+| Identidade Visual (Embeds) | **zNyx Branding** (Fixo) | 🎨 **WhiteLabel Completo** |
+| Cores Personalizadas | ✅ | ✅ |
+| Config do Rodapé (`/padrao`) | ❌ (Bloqueado) | ✅ (Personalizável) |
+| `/padrao` (Defaults) | Parcial (Só Cor) | Total (Cor + Rodapé) |
 | **Gestão & Utilitários** | | |
 | `/anunciar` (Painel Interativo) | ✅ | ✅ |
 | `/editanunciar` (Correção) | ❌ | ✅ |
@@ -60,40 +64,37 @@ Confira a matriz completa de funcionalidades e escolha a que melhor se adapta à
 | Categorias Personalizáveis | ✅ | ✅ |
 | **Engajamento** | | |
 | Sistema de Sugestões | ✅ | ✅ |
-| Sistema de Sorteios / Reroll | ❌ | ✅ |
-| Sistema de Avaliação | ❌ | ✅ |
+| Avaliações (`/avaliacao`) | ❌ | ✅ |
+| Sorteios (`/sortear`, `/reroll`) | ❌ | ✅ |
 | Tópicos Automáticos | ❌ | ✅ |
 | **Monitoramento** | | |
 | `/status` (Painel em Tempo Real) | 1 Servidor | **Ilimitado** |
 | Modo Manutenção | ❌ | ✅ |
 | `/conexão` (Webhooks n8n) | ❌ | ✅ |
 
-> **Nota:** *WhiteLabel Parcial: O rodapé dos embeds manterá a assinatura padrão: "© 2025 znyx.com.br - Todos os direitos reservados."*
-
-## Detalhes Importantes
-
-### Sobre os Comandos Financeiros
-Focamos na estética e no profissionalismo da sua comunicação:
-* **/pix:** Gera um embed profissional e padronizado para exibir seus dados de recebimento. Não realiza processamento de pagamentos ou baixa automática.
-* **/promo:** Cria comunicados visuais de alto impacto para divulgar suas ofertas. Não gerencia a validade técnica de cupons dentro do jogo ou loja.
-
-### Plano Plus
-Ideal para quem está profissionalizando a gestão.
-* **Foco:** Atendimento via tickets, organização de sugestões e anúncios padronizados.
-* **Limitação:** Exibe a marca do zNyx discretamente no rodapé.
-
-### Plano Pro
-Para quem trata o servidor como uma empresa.
-* **Foco:** Retenção (Sorteios/Avaliações), Automação (n8n/IA) e Monitoramento total.
-* **Diferencial:** Sua marca em 100% dos locais e atendimento prioritário da nossa equipe.
-
-> ✅ **Pronto para escalar?** [Entre em contato conosco](https://discord.gg/3Mz97UjDta) para ativar sua licença e configurar seu bot hoje mesmo.
+> **Nota sobre o Plano Plus:** O rodapé dos embeds manterá a assinatura fixa: *"Desenvolvido por znyx.com.br"*. Apenas o Plano Pro permite remover ou alterar essa assinatura via `/padrao`.
 
 ---
 
-# 📚 Documentação dos Comandos (Referência Rápida)
+# 📚 Documentação dos Comandos
 
-Abaixo você encontra um resumo técnico dos comandos. Para detalhes visuais e exemplos, visite nossa [Documentação Completa](https://docs.znyx.com.br) (Link Exemplo).
+Abaixo você encontra a referência técnica detalhada de todos os comandos disponíveis no zNyx.
+
+## ⚙️ Configuração Global (Novo)
+
+Ferramenta essencial para administradores definirem a identidade visual do servidor uma única vez.
+
+### `/padrao`
+Define valores que serão preenchidos automaticamente em todos os embeds do bot (Anúncios, Tickets, Status, etc), garantindo consistência visual e economizando tempo.
+- **Subcomandos:**
+  - `cor`: Define a cor lateral padrão (HEX).
+    - *Ex:* `/padrao cor valor:#FF00AA`
+  - `rodape`: Define o texto do rodapé. **(Exclusivo Plano Pro)**
+    - *Ex:* `/padrao rodape texto:Rede zNyx - O melhor survival`
+  - `ver`: Mostra as configurações atuais e a versão do bot.
+- **Dica de Power User:** Use o valor especial `padrao#` em qualquer comando individual para forçar o uso dessa configuração global.
+
+---
 
 ## 📢 Anúncios e Promoções
 
@@ -103,16 +104,17 @@ Ferramentas para comunicar novidades, promoções e solicitar pagamentos de form
 Envia um anúncio personalizado no canal atual através de um painel interativo.
 - **Como usar:** Digite o comando e preencha as opções opcionais. O bot pedirá o texto do anúncio em seguida.
 - **Opções:**
-  - `cor` (Opcional): Cor da lateral do embed em HEX (ex: `#FF0000`). Padrão: Verde.
+  - `cor` (Opcional): Cor da lateral do embed em HEX (ex: `#FF0000`). Padrão: Verde ou Global.
   - `rodape` (Opcional): Texto pequeno no rodapé do anúncio.
-  - `imagem` (Opcional): URL de uma imagem ou GIF para ilustrar o anúncio.
+  - `imagem` (Opcional): URL de uma imagem ou GIF para ilustrar o anúncio (Banner).
 
 ### `/editanunciar`
-Edita um anúncio já enviado pelo bot.
+Edita um anúncio já enviado pelo bot, ideal para correções rápidas sem perder reações.
 - **Opções:**
   - `mensagem_id` (Obrigatório): O ID da mensagem do anúncio (ative o Modo Desenvolvedor do Discord para pegar).
   - `manter_descricao` (Opcional): `True` para manter o texto atual, `False` para escrever um novo.
-  - `cor`, `rodape`, `imagem` (Opcional): Novos valores para atualizar. Use `padrao#` para resetar ou `remover#` para excluir a imagem.
+  - `cor`, `rodape`, `imagem` (Opcional): Novos valores para atualizar.
+  - **Tokens Especiais:** Use `padrao#` para resetar para o global ou `remover#` para excluir o campo (ex: tirar a imagem).
 
 ### `/pix`
 Gera um embed profissional de cobrança via PIX com botão "Copiar Chave".
@@ -127,34 +129,35 @@ Cria um cupom de desconto com contagem regressiva e botões.
   - `desconto` (Obrigatório): Texto do destaque (ex: `20% OFF`).
   - `cupom` (Obrigatório): O código do cupom (ex: `NATAL20`).
   - `data_limite` (Obrigatório): Validade no formato `DD/MM/AAAA HH:MM` (ex: `25/12/2026 23:59`).
-  - `titulo`, `descricao`, `cor`, `imagem`, `rodape`, `link_compra`: Personalizações opcionais.
+  - `titulo`, `descricao`, `cor`, `imagem`, `rodape`, `link_compra`: Personalizações opcionais para deixar o card único.
 
 ---
 
 ## ⭐ Avaliações
 
-Sistema para coletar e exibir feedbacks dos membros.
+Sistema para coletar e exibir feedbacks dos membros, gerando prova social.
 
 ### `/avaliacao configurar`
-Configura onde os embeds e avaliações aparecerão.
+Configura onde os embeds e avaliações aparecerão e define regras de permissão.
 - **Opções:**
   - `canal_embed` (Obrigatório): Canal onde ficará o painel fixo de "Deixe sua avaliação".
-  - `canal_avaliacoes` (Obrigatório): Canal onde as avaliações recebidas serão postadas.
-  - `cargos_staff` (Obrigatório): Menção dos cargos que podem responder avaliações (@Admin @Mod).
+  - `canal_avaliacoes` (Obrigatório): Canal onde as avaliações recebidas serão postadas publicamente.
+  - `cargos_staff` (Obrigatório): Menção dos cargos que podem responder avaliações (ex: @Admin @Mod).
+  - `cargos_avaliadores` (Opcional): **Novo!** Menção dos cargos que podem *enviar* avaliações (ex: @Cliente). Se vazio, todos podem avaliar.
   - `anonimo`: Se `True`, oculta quem enviou a avaliação.
-  - `texto_embed`, `cor`, `rodape`, `imagem`: Personalização do painel.
+  - `texto_embed`, `cor`, `rodape`, `imagem`: Personalização do painel de solicitação.
 
 ### `/avaliacao iniciar`
 Envia o painel com o botão de avaliar no canal configurado.
 
 ### `/avaliacao status`
-Mostra as configurações atuais do sistema.
+Mostra as configurações atuais do sistema (canais, cargos permitidos, etc).
 
 ### `/responder`
 Responde publicamente a uma avaliação enviada.
 - **Opções:**
   - `avaliacao_id` (Obrigatório): ID da mensagem da avaliação.
-  - `resposta` (Obrigatório): Texto da resposta da equipe.
+  - `resposta` (Obrigatório): Texto da resposta da equipe (ex: "Obrigado pelo feedback!").
 
 ---
 
@@ -168,8 +171,8 @@ Conecta um canal de texto a um webhook externo (n8n).
   - `canal` (Obrigatório): O canal que será monitorado.
   - `webhook` (Obrigatório): URL do webhook do n8n (POST).
   - `modo` (Obrigatório):
-    - `Todas as mensagens`: Envia tudo o que é falado no canal.
-    - `Apenas menções`: Envia apenas quando marcam o bot.
+    - `Todas as mensagens`: Envia tudo o que é falado no canal (Logs/IA Geral).
+    - `Apenas menções`: Envia apenas quando marcam o bot (Chatbots).
 
 ### `/conexao remover`
 Remove a integração de um canal.
@@ -178,7 +181,47 @@ Remove a integração de um canal.
 Lista todas as conexões ativas no servidor.
 
 ### `/conexao configurar`
-Exibe um tutorial rápido de como configurar o workflow no n8n.
+Exibe um tutorial rápido de como configurar o workflow e o payload JSON no n8n.
+
+### ⚙️ Guia de Integração: n8n (Tutorial Técnico)
+Para criar seus agentes de IA, siga esta configuração exata no n8n.
+
+#### 1. Recebendo Dados (Webhook Node)
+Configure o nó **Webhook** no n8n para receber as mensagens do zNyx:
+- **Webhook Path:** Livre (use um código seguro/difícil).
+- **Method:** `POST`
+- **Authentication:** `None`
+- **Respond:** `Immediately` ⚠️ **Importante!** (Evita timeout no Discord).
+- **Payload Recebido:** O bot enviará os seguintes dados:
+  `messageId`, `userId`, `username`, `displayName`, `content`, `channelId`, `guildId`, `timestamp`, `attachments`.
+
+#### 2. Enviando Respostas
+Existem duas formas de devolver a resposta para o Discord:
+
+**Opção A: Responder via Webhook do Discord (Simples)**
+- **Nó:** HTTP Request
+- **Method:** `POST`
+- **URL:** [Cole o Webhook do Canal Discord]
+- **Authentication:** `None`
+- **Send Body:** Ativado (`JSON`)
+- **JSON:**
+  #CODE# json
+  { "content": "Resposta do agente" }
+  #CODE#
+- *Como criar o Webhook:* Vá em Config. do Canal → Integrações → Webhooks → Novo.
+
+**Opção B: Responder como o Bot (Recomendado)**
+Mantém a identidade do bot e permite usar "Reply".
+- **Nó:** Discord
+- **Connection Type:** `Bot Token` (Configure o Token do seu Bot)
+- **Resource:** `Message`
+- **Operation:** `Send`
+- **Send To:** `Channel`
+- **Channel:** Use a expressão `{{ $json.channelId }}`
+- **Message:** O texto da resposta do agente.
+- **Para dar Reply (Citar mensagem):**
+  - Vá em `Options` → `Add Option` → `Message to Reply to`
+  - Use a expressão: `{{ $json.body.messageId }}`
 
 ---
 
@@ -193,12 +236,12 @@ Inicia um novo sorteio.
   - `data_final` (Obrigatório): Encerramento em `DD/MM/AAAA HH:MM`.
   - `cargos` (Opcional): Menção de cargos obrigatórios para participar (vazio = todos).
   - `fraude` (Opcional): Se `True` (padrão), impede contas novas (< 7 dias) de ganhar.
-  - `titulo`, `imagem`, `cor`, `rodape`: Personalização.
+  - `titulo`, `imagem`, `cor`, `rodape`: Personalização completa.
 
 ### `/reroll`
 Sorteia novos ganhadores para um sorteio encerrado.
 - **Opções:**
-  - `mensagem_id` (Obrigatório): ID da mensagem do sorteio.
+  - `mensagem_id` (Obrigatório): ID da mensagem do sorteio original.
   - `ganhadores` (Opcional): Quantidade de novos nomes (padrão é a mesma do sorteio original).
 
 ---
@@ -213,7 +256,7 @@ Define quais servidores monitorar e onde exibir.
   - `canal` (Obrigatório): Onde o painel de status ficará.
   - `servidores` (Obrigatório): IPs dos servidores separados por vírgula (ex: `jogar.rede.com, rankup.rede.com`).
   - `titulo`, `cor`, `imagem`, `rodape`: Personalização.
-  - `icone_online`, `icone_offline`, `icone_manutencao`: Emojis personalizados para cada estado.
+  - `icone_online`, `icone_offline`, `icone_manutencao`: Emojis personalizados para cada estado (branding).
 
 ### `/status iniciar`
 Envia o painel e inicia a atualização automática (a cada 10 minutos).
@@ -232,7 +275,7 @@ Volta o painel ao funcionamento normal (pingando os servidores).
 
 ## 💡 Sugestões
 
-Sistema de votação para melhorias no servidor.
+Sistema de votação democrática para melhorias no servidor.
 
 ### `/sugestao configurar`
 Prepara os canais de sugestão.
@@ -240,13 +283,13 @@ Prepara os canais de sugestão.
   - `canal_analise` (Obrigatório): Onde os membros enviam e votam nas sugestões.
   - `canal_resultado` (Obrigatório): Onde aparecem as sugestões aprovadas/reprovadas.
   - `anonimo`: Se as sugestões são anônimas.
-  - `emoji_positivo`, `emoji_negativo`, `cor`: Personalização.
+  - `emoji_positivo`, `emoji_negativo`, `cor`: Personalização dos botões e embed.
 
 ### `/sugestao iniciar`
-Envia o painel com botão "Sugerir" no canal de análise.
+Envia o painel com botão "💡 Enviar Sugestão" no canal de análise.
 
 ### `/resultado`
-Aprova ou reprova uma sugestão.
+Aprova ou reprova uma sugestão administrativamente.
 - **Opções:**
   - `sugestao_id` (Obrigatório): ID da mensagem da sugestão.
   - `decisao` (Obrigatório): `Aprovar` ou `Reprovar`.
@@ -256,21 +299,24 @@ Aprova ou reprova uma sugestão.
 
 ## 🎫 Tickets
 
-Sistema de atendimento privado via tickets.
+Sistema de atendimento privado via tickets com logs.
 
 ### `/categorias adicionar`
-Cria uma categoria de atendimento (ex: Financeiro, Dúvidas).
-- **Opções:** `emoji`, `titulo`, `subtitulo`, `cargos` (quem pode atender, além de admins).
+Cria uma categoria de atendimento no menu (ex: Financeiro, Dúvidas).
+- **Opções:** `titulo`, `emoji`, `subtitulo`, `cargos` (quem pode atender, além de admins).
+
+### `/categorias listar` / `/categorias remover` / `/categorias editar`
+Gerencia as categorias existentes.
 
 ### `/ticket`
 Configura o painel principal de tickets.
 - **Opções:**
   - `categoria` (Obrigatório): ID da **Categoria do Discord** (aba de canais) onde os tickets serão abertos.
-  - `logs` (Obrigatório): Canal de texto para logs de tickets.
+  - `logs` (Obrigatório): Canal de texto para logs de tickets (transcripts).
   - `titulo`, `cor`, `imagem_inicial`, `imagem_ticket`, `boas_vindas`: Personalização completa.
 
 ### `/fecharticket`
-Fecha o ticket atual (ou um específico). Gera transcript/log no canal de logs.
+Fecha o ticket atual. Gera transcript/log no canal de logs e deleta o canal após 5 segundos.
 
 ---
 
@@ -285,3 +331,16 @@ Transforma todas as mensagens de um canal em tópicos (threads) automaticamente.
 
 ### `/topicos desativar`
 Para a criação automática de tópicos.
+
+---
+
+## 🛡️ Infraestrutura e Segurança
+
+O zNyx foi construído para ser resiliente em ambientes de produção.
+
+### Auto-Restart Nativo
+Não se preocupe com quedas. O bot possui um sistema de vigilância (Watchdog) no container Docker:
+- **Detecção de Falha:** Se o processo do bot travar ou fechar por erro crítico.
+- **Ação Imediata:** O sistema captura o código de erro.
+- **Recuperação:** O bot reinicia automaticamente em **5 segundos**.
+- **Benefício:** Máxima disponibilidade (Uptime) e estabilidade para sua comunidade, sem intervenção manual.

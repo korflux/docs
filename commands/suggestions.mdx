@@ -1,18 +1,25 @@
 ---
-title: Sugestões e Avaliações
-sidebarTitle: Sugestões
-description: 'Sistemas de feedback para democratizar e melhorar seu servidor'
+title: Sugestões
+description: 'Sistema democrático de votação para melhorias do servidor'
 ---
 
-Centralize o feedback da sua comunidade. O zNyx oferece dois fluxos distintos: um para ideias de melhorias (Sugestões) e outro para análise de qualidade do atendimento (Avaliações).
+Centralize as ideias de melhoria da sua comunidade. Os membros enviam sugestões, a comunidade vota, e a staff decide o resultado.
 
-## 💡 Sugestões
+## 💡 `/sugestao`
 <span className="api-method-tag get">PLUS</span> <span className="api-method-tag get">PRO</span>
 
-Sistema democrático onde membros enviam ideias e a comunidade vota. As sugestões aprovadas são movidas automaticamente para um canal de "Resultados".
+Sistema democrático onde membros enviam ideias e a comunidade vota. As sugestões aprovadas/reprovadas são movidas automaticamente para um canal de "Resultados".
 
-### 1. Configuração (`/sugestao configurar`)
-Antes de iniciar, defina as regras e canais.
+### Subcomandos
+
+| Subcomando | Descrição |
+| :--- | :--- |
+| `configurar` | Define as regras e canais do sistema. |
+| `iniciar` | Envia o painel com botão para sugerir. |
+
+---
+
+### Configuração (`/sugestao configurar`)
 
 | Opção | Tipo | Obrigatoriedade | Descrição |
 | :--- | :--- | :--- | :--- |
@@ -23,50 +30,17 @@ Antes de iniciar, defina as regras e canais.
 | `emoji_negativo` | Emoji | Opcional | Ícone para "Não" (Padrão: 👎). |
 | `cor` | Texto (HEX) | Opcional | Cor da lateral do embed. |
 
-### 2. Iniciar Painel (`/sugestao iniciar`)
-Envia um embed fixo com um botão "Sugerir" no canal de análise. Isso evita spam de comandos no chat.
+---
 
-### 3. Moderação (`/resultado`)
+## ⚖️ `/resultado`
+<span className="api-method-tag patch">PLUS</span> <span className="api-method-tag patch">PRO</span>
+
 Comando exclusivo para a staff aprovar ou rejeitar uma ideia.
+
+### Argumentos
 
 | Opção | Tipo | Obrigatoriedade | Descrição |
 | :--- | :--- | :--- | :--- |
 | `sugestao_id` | ID | **Obrigatório** | ID da mensagem da sugestão (Ative o Modo Desenvolvedor). |
 | `decisao` | Seleção | **Obrigatório** | `Aprovar` (Verde) ou `Reprovar` (Vermelho). |
 | `resposta` | Texto | Opcional | Motivo da decisão (ex: "Aprovado! Será implementado na próxima atualização."). |
-
----
-
-## ⭐ Avaliações
-<span className="api-method-tag post">PRO</span>
-
-<Note>Este módulo é exclusivo do **Plano Pro**.</Note>
-
-Crie um canal de "Prova Social" e monitore a qualidade do suporte da sua equipe. Os membros podem dar notas (1 a 5 estrelas) e deixar comentários.
-
-### 1. Configuração (`/avaliacao configurar`)
-Configure o ecossistema de feedbacks.
-
-| Opção | Tipo | Obrigatoriedade | Descrição |
-| :--- | :--- | :--- | :--- |
-| `canal_embed` | Canal (#) | **Obrigatório** | Onde ficará o painel fixo de "Deixe sua avaliação". |
-| `canal_avaliacoes` | Canal (#) | **Obrigatório** | Onde as avaliações recebidas serão postadas publicamente. |
-| `cargos_staff` | Cargo (@) | **Obrigatório** | Cargos permitidos a usar o comando `/responder` (ex: @Admin, @Mod). |
-| `anonimo` | Booleano | Opcional | Se `True`, oculta quem enviou a avaliação. |
-| `texto_embed` | Texto | Opcional | Texto descritivo do painel principal. |
-| `imagem` | Link (URL) | Opcional | Banner para o painel de avaliação. |
-
-### 2. Iniciar Painel (`/avaliacao iniciar`)
-Envia o painel interativo para o `canal_embed` configurado.
-
-### 3. Responder Feedback (`/responder`)
-Mostre que você se importa. A staff pode responder publicamente a uma avaliação, criando uma thread ou respondendo no próprio embed.
-
-| Opção | Tipo | Obrigatoriedade | Descrição |
-| :--- | :--- | :--- | :--- |
-| `avaliacao_id` | ID | **Obrigatório** | ID da mensagem da avaliação recebida. |
-| `resposta` | Texto | **Obrigatório** | Texto da resposta oficial da equipe. |
-
-<Info>
-**Dica de Gestão:** Use as avaliações para medir o NPS (Net Promoter Score) do seu servidor e bonificar staffs com melhores notas.
-</Info>
