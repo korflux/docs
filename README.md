@@ -8,7 +8,7 @@ O **zNyx** é a ferramenta definitiva para elevar o padrão da sua comunidade de
 
 Mais do que um bot, é uma solução completa para profissionalizar a comunicação e monetização do seu projeto.
 
-*   [**Suporte & Contato**](https://discord.gg/Xbe2vm9kGJ): Entre em contato diretamente comigo para dúvidas ou suporte.
+*   [**Suporte & Contato**](https://discord.gg/3Mz97UjDta): Entre em contato diretamente comigo para dúvidas ou suporte.
 
 ## ✨ Funcionalidades
 
@@ -87,7 +87,7 @@ Para quem trata o servidor como uma empresa.
 * **Foco:** Retenção (Sorteios/Avaliações), Automação (n8n/IA) e Monitoramento total.
 * **Diferencial:** Sua marca em 100% dos locais e atendimento prioritário da nossa equipe.
 
-> ✅ **Pronto para escalar?** [Entre em contato conosco](https://discord.gg/Xbe2vm9kGJ) para ativar sua licença e configurar seu bot hoje mesmo.
+> ✅ **Pronto para escalar?** [Entre em contato conosco](https://discord.gg/3Mz97UjDta) para ativar sua licença e configurar seu bot hoje mesmo.
 
 ---
 
