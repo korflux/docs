@@ -1,45 +1,65 @@
 ---
 title: Tickets e Suporte
 sidebarTitle: Tickets
-description: Atendimento profissional via tickets privados
+description: 'Atendimento profissional, privado e auditável'
 ---
 
-Gerencie o suporte da sua comunidade com organização e logs.
+Centralize o suporte da sua comunidade. O sistema de tickets do zNyx organiza as demandas por categorias, restringe o acesso apenas à staff responsável e gera logs automáticos para segurança do servidor.
 
-## `/ticket`
-<span className="api-method-tag get">PLUS</span>
+## 🎫 `/ticket`
+<span className="api-method-tag get">PLUS</span> <span className="api-method-tag get">PRO</span>
 
-Configura o painel principal onde os membros abrirão os tickets.
+Configura o "Painel de Abertura", a mensagem fixa onde os membros interagem para iniciar um atendimento.
 
-**Opções:**
-<ParamField query="categoria" type="string" required>
-  ID da **Categoria do Discord** onde os canais de ticket serão criados.
-</ParamField>
-<ParamField query="logs" type="channel" required>
-  Canal de texto para envio dos transcripts (`.txt`).
-</ParamField>
-<ParamField query="titulo" type="string">
-  Título do embed do painel.
-</ParamField>
+### Argumentos de Configuração
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `categoria` | ID (Número) | **Obrigatório** | O ID da **Categoria do Discord** (a "pasta" de canais) onde os tickets abertos serão criados. |
+| `logs` | Canal (#) | **Obrigatório** | Canal de texto privado onde os transcripts (`.txt`) serão salvos. |
+| `titulo` | Texto | Opcional | Título do embed do painel (ex: "Central de Ajuda"). |
+| `boas_vindas` | Texto | Opcional | Mensagem enviada automaticamente dentro do ticket assim que ele é criado. |
+| `imagem_inicial` | Link (URL) | Opcional | Banner do painel de abertura (fora do ticket). |
+| `imagem_ticket` | Link (URL) | Opcional | Banner enviado no topo da conversa (dentro do ticket). |
+| `cor` | Texto (HEX) | Opcional | Cor da identidade visual do painel. |
 
----
-
-## `/fecharticket`
-<span className="api-method-tag delete">PLUS</span>
-
-Fecha o ticket atual.
-*   Gera um arquivo de log (transcript) com toda a conversa.
-*   Envia o log para o canal configurado.
-*   Deleta o canal do ticket após 5 segundos.
+<Info>
+**Como pegar o ID da Categoria?**
+Ative o **Modo Desenvolvedor** nas configurações do Discord, clique com o botão direito no nome da Categoria (na lista de canais à esquerda) e selecione "Copiar ID".
+</Info>
 
 ---
 
-## `/categorias`
-<span className="api-method-tag put">PLUS</span>
+## 📂 `/categorias`
+<span className="api-method-tag put">PLUS</span> <span className="api-method-tag put">PRO</span>
 
-Gerencia as opções que aparecem no menu de seleção do ticket (ex: Financeiro, Dúvidas).
+Gerencie o menu de seleção do painel. Você pode criar departamentos específicos (ex: Financeiro, Denúncias, Bugs).
 
-**Subcomandos:**
-*   `adicionar`: Cria uma nova categoria com emoji e cargos específicos de suporte.
-*   `remover`: Remove uma categoria existente.
-*   `listar`: Mostra todas as categorias configuradas.
+### Subcomandos
+| Subcomando | Descrição |
+| :--- | :--- |
+| `adicionar` | Cria uma nova opção no menu de tickets. |
+| `remover` | Remove uma categoria existente. |
+| `listar` | Exibe todas as categorias ativas e seus IDs. |
+| `editar` | Altera configurações de uma categoria existente. |
+
+### Argumentos (Adicionar)
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `titulo` | Texto | **Obrigatório** | Nome da categoria no menu (ex: "Financeiro"). |
+| `emoji` | Emoji | Opcional | Ícone para ilustrar a opção (ex: 💸). |
+| `subtitulo` | Texto | Opcional | Descrição curta abaixo do título. |
+| `cargos` | Cargo (@) | Opcional | Quem pode ver os tickets desta categoria? (Além de Admins). Se vazio, apenas quem tem permissão de ver o canal vê. |
+
+---
+
+## 🔒 `/fecharticket`
+<span className="api-method-tag delete">PLUS</span> <span className="api-method-tag delete">PRO</span>
+
+Encerra o atendimento atual com segurança.
+
+**O que acontece ao usar este comando:**
+1.  O bot salva todo o histórico da conversa em um arquivo de texto (`transcript-id.txt`).
+2.  O arquivo é enviado imediatamente para o canal definido em `logs`.
+3.  O canal do ticket é excluído automaticamente após 5 segundos.
+
+<Warning>O transcript inclui data, hora, autor e conteúdo das mensagens, servindo como prova documental do atendimento.</Warning>

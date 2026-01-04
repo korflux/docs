@@ -12,6 +12,10 @@
         "dark": "#0055b3",
         "anchors": "#007AFF"
     },
+    "topbarCtaButton": {
+        "name": "Fale Conosco",
+        "url": "https://discord.gg/Xbe2vm9kGJ"
+    },
     "navigation": [
         {
             "group": "Bem-vindo",
@@ -33,7 +37,6 @@
         }
     ],
     "footerSocials": {
-        "discord": "https://discord.gg/korflux",
-        "github": "https://github.com"
+        "discord": "https://discord.gg/korflux"
     }
 }

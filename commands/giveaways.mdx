@@ -1,44 +1,44 @@
 ---
 title: Sorteios
-description: Sistema completo de sorteios com requisitos
+description: 'Engajamento e crescimento com sorteios auditáveis'
 ---
 
 <Note>Este módulo é exclusivo do **Plano Pro**.</Note>
 
-Realize sorteios justos e auditáveis diretamente no seu servidor.
+Maximize a retenção e o engajamento da sua comunidade. O sistema de sorteios do zNyx foi desenhado para ser transparente, seguro contra fraudes e visualmente impactante.
 
-## `/sortear`
+## 🎲 `/sortear`
 <span className="api-method-tag post">PRO</span>
 
-Inicia um novo sorteio configurável.
+Inicia um novo sorteio totalmente configurável, desde as regras de participação até a identidade visual.
 
-**Opções:**
-<ParamField query="ganhadores" type="number" required>
-  Quantidade de vencedores (ex: `1`, `3`).
-</ParamField>
-<ParamField query="data_final" type="string" required>
-  Encerramento em `DD/MM/AAAA HH:MM` (ex: `25/12/2026 23:59`).
-</ParamField>
-<ParamField query="cargos" type="role">
-  Menção de cargos obrigatórios para participar (vazio = todos).
-</ParamField>
-<ParamField query="fraude" type="boolean">
-  Se `True` (padrão), impede contas novas (< 7 dias) de ganhar.
-</ParamField>
+### Regras e Funcionamento
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `ganhadores` | Número | **Obrigatório** | Quantidade de vencedores (ex: `1`, `3`). |
+| `data_final` | Texto | **Obrigatório** | Data de encerramento no formato `DD/MM/AAAA HH:MM` (ex: `25/12/2026 23:59`). |
+| `cargos` | Cargo (@) | Opcional | Restringe o sorteio apenas para quem possui este cargo (ex: @Vip). Se vazio, é público. |
+| `fraude` | Booleano | Opcional | Se `True` (padrão), impede contas novas (criadas há menos de 7 dias) de participar. |
+
+### Personalização Visual
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `titulo` | Texto | Opcional | Título do embed do sorteio. |
+| `imagem` | Link (URL) | Opcional | URL de um banner ou GIF para ilustrar o prêmio. |
+| `cor` | Texto (HEX) | Opcional | Cor da lateral do embed (ex: `#FFD700`). |
+| `rodape` | Texto | Opcional | Mensagem personalizada no rodapé. |
 
 ---
 
-## `/reroll`
+## 🔄 `/reroll`
 <span className="api-method-tag patch">PRO</span>
 
-Sorteia novos ganhadores para um sorteio já encerrado.
+Precisa refazer o sorteio? O sistema de reroll é inteligente e garante que não haja repetição de vencedores.
 
-<Warning>O sistema exclui automaticamente os ganhadores anteriores para evitar repetições.</Warning>
+<Warning>Ao executar um reroll, o sistema adiciona os ganhadores anteriores a uma "lista negra" temporária, garantindo que o prêmio vá para um novo membro.</Warning>
 
-**Opções:**
-<ParamField query="mensagem_id" type="string" required>
-  ID da mensagem do sorteio original.
-</ParamField>
-<ParamField query="ganhadores" type="number">
-  Quantidade de novos nomes (padrão é a mesma do sorteio original).
-</ParamField>
+### Argumentos
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `mensagem_id` | ID | **Obrigatório** | O ID da mensagem do sorteio original (Ative o Modo Desenvolvedor do Discord). |
+| `ganhadores` | Número | Opcional | Quantidade de novos nomes a sortear. Se não informado, usa a mesma quantidade do sorteio original. |

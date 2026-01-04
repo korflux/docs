@@ -1,76 +1,82 @@
 ---
 title: Anúncios e Promoções
-sidebarTitle: Anúncios
-description: Ferramentas para comunicação e vendas
+description: 'Ferramentas profissionais para comunicação e vendas'
 ---
 
-Engaje sua comunidade com anúncios visuais e sistemas de vendas integrados.
+Comunique novidades, solicite pagamentos e crie ofertas irresistíveis com embeds visuais de alto padrão. O zNyx transforma mensagens de texto simples em comunicados oficiais que aumentam a autoridade do seu servidor.
 
-## `/anunciar`
-<span className="api-method-tag get">PLUS</span>
+## 📢 `/anunciar`
+<Note>Disponível nos Planos: **Plus** e **Pro**</Note>
 
-Envia um anúncio personalizado no canal atual através de um painel interativo. O bot guiará você passo a passo.
+Envia um comunicado oficial no canal atual. O comando abre um painel interativo onde o bot solicitará o texto principal da mensagem.
 
-**Como usar:**
-1. Digite `/anunciar`.
-2. O bot abrirá um modal pedindo o Título e a Descrição.
-3. Após enviar, você pode anexar uma imagem se desejar.
-
-**Opções:**
-<ParamField query="cor" type="string">
-  Cor da lateral do embed em HEX (ex: `#FF0000`). Padrão: Verde.
-</ParamField>
-<ParamField query="rodape" type="string">
-  Texto pequeno no rodapé do anúncio.
-</ParamField>
-<ParamField query="imagem" type="string">
-  URL de uma imagem ou GIF para ilustrar o anúncio.
-</ParamField>
+### Argumentos
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `cor` | Texto (HEX) | Opcional | Cor da lateral do embed (ex: `#FF0000`). Padrão: Verde zNyx. |
+| `imagem` | Link (URL) | Opcional | URL de uma imagem ou GIF para ilustrar o anúncio (Banner). |
+| `rodape` | Texto | Opcional <Tooltip tip="Recurso exclusivo do Plano Pro">**PRO**</Tooltip> | Texto pequeno no rodapé. No plano Plus, exibe créditos zNyx. |
 
 ---
 
-## `/editanunciar`
-<span className="api-method-tag patch">PRO</span>
+## ✏️ `/editanunciar`
+<Note>Disponível apenas no Plano: **Pro**</Note>
 
-Permite corrigir ou atualizar um anúncio já enviado pelo bot, sem precisar apagar e postar de novo.
+Errou algo no anúncio? Não apague. Use este comando para editar qualquer campo de um anúncio já enviado pelo bot, mantendo o engajamento e as reações.
 
-**Opções:**
-<ParamField query="mensagem_id" type="string" required>
-  ID da mensagem do anúncio (ative o Modo Desenvolvedor do Discord para pegar).
-</ParamField>
-<ParamField query="manter_descricao" type="boolean">
-  `True` para manter o texto atual, `False` para escrever um novo.
-</ParamField>
+### Argumentos
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `mensagem_id` | ID | **Obrigatório** | O ID da mensagem do anúncio (Ative o Modo Desenvolvedor do Discord). |
+| `manter_descricao` | Booleano | Opcional | `True` para manter o texto atual, `False` para escrever um novo. |
+| `cor` | Texto (HEX) | Opcional | Nova cor para o embed. |
+| `imagem` | Link (URL) | Opcional | Nova imagem ou GIF. |
+| `rodape` | Texto | Opcional | Novo texto de rodapé. |
 
----
-
-## `/pix`
-<span className="api-method-tag get">PLUS</span>
-
-Gera um embed profissional de cobrança com botão "Copiar Chave".
-
-**Opções:**
-<ParamField query="valor" type="string" required>
-  O valor da cobrança (ex: `50,00`).
-</ParamField>
-<ParamField query="chave" type="string" required>
-  A chave PIX que será copiada pelo botão.
-</ParamField>
+<Info>
+**Dica de Power User:** Use os tokens especiais para resetar configurações:
+* `padrao#`: Digite isso em `cor` ou `rodape` para voltar ao valor original do sistema.
+* `remover#`: Digite isso em `imagem` ou `rodape` para excluir o elemento do embed.
+</Info>
 
 ---
 
-## `/promo`
-<span className="api-method-tag post">PRO</span>
+## 💸 `/pix`
+<Note>Disponível nos Planos: **Plus** e **Pro**</Note>
 
-Cria um cupom de desconto com contagem regressiva e botões interativos.
+Gera um card profissional de cobrança. Focado em facilitar o pagamento visualmente, inclui um botão funcional de "Copiar Chave".
+*Nota: Este comando não processa pagamentos automaticamente, apenas exibe os dados de forma elegante.*
 
-**Opções:**
-<ParamField query="desconto" type="string" required>
-  Texto do destaque (ex: `20% OFF`).
-</ParamField>
-<ParamField query="cupom" type="string" required>
-  O código do cupom (ex: `NATAL20`).
-</ParamField>
-<ParamField query="data_limite" type="string" required>
-  Validade no formato `DD/MM/AAAA HH:MM`.
-</ParamField>
+### Argumentos
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `valor` | Texto | **Obrigatório** | O valor da cobrança (ex: `50,00`). |
+| `chave` | Texto | **Obrigatório** | A chave PIX que será copiada pelo botão. |
+| `cor` | Texto (HEX) | Opcional | Personalização da cor lateral. |
+| `rodape` | Texto | Opcional <Tooltip tip="Recurso exclusivo do Plano Pro">**PRO**</Tooltip> | Texto personalizado no rodapé. |
+
+<Warning>O comando `/pix` possui um layout fixo otimizado para conversão. Não é possível alterar a imagem (thumbnail) deste embed.</Warning>
+
+---
+
+## 🏷️ `/promo`
+<Note>Disponível apenas no Plano: **Pro**</Note>
+
+Cria um cupom de desconto com contagem regressiva e botões de ação. Ideal para Black Friday, Natal ou promoções relâmpago.
+
+### Argumentos Obrigatórios
+| Opção | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `desconto` | Texto | O destaque principal do banner (ex: `20% OFF`, `VIP GRÁTIS`). |
+| `cupom` | Texto | O código que o usuário deve usar (ex: `NATAL20`). |
+| `data_limite` | Texto | Validade no formato `DD/MM/AAAA HH:MM` (ex: `25/12/2026 23:59`). |
+
+### Personalização (Opcionais)
+| Opção | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `titulo` | Texto | Título do embed (Padrão: "Nova Promoção"). |
+| `descricao` | Texto | Texto explicativo ou regras da promoção. |
+| `link_compra` | Link (URL) | Adiciona um botão "Comprar Agora" direto para sua loja. |
+| `imagem` | Link (URL) | Banner principal da promoção. |
+| `cor` | Texto (HEX) | Cor temática da promoção. |
+| `rodape` | Texto | Texto pequeno no final do embed. |

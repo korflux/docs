@@ -1,65 +1,72 @@
 ---
 title: Sugestões e Avaliações
 sidebarTitle: Sugestões
-description: Colete feedbacks e avaliações da comunidade
+description: 'Sistemas de feedback para democratizar e melhorar seu servidor'
 ---
 
-Democratize as decisões do servidor e ouça seus membros.
+Centralize o feedback da sua comunidade. O zNyx oferece dois fluxos distintos: um para ideias de melhorias (Sugestões) e outro para análise de qualidade do atendimento (Avaliações).
 
-## `/sugestao`
-<span className="api-method-tag get">PLUS</span>
+## 💡 Sugestões
+<span className="api-method-tag get">PLUS</span> <span className="api-method-tag get">PRO</span>
 
-Qualquer membro pode usar para enviar uma ideia. O bot formata um embed com votação automática (👍/👎).
+Sistema democrático onde membros enviam ideias e a comunidade vota. As sugestões aprovadas são movidas automaticamente para um canal de "Resultados".
 
-**Como funciona:**
-1. Membro envia `/sugestao texto: "Adicionar minigame X"`.
-2. Bot posta no canal de `analise`.
-3. Membros votam.
+### 1. Configuração (`/sugestao configurar`)
+Antes de iniciar, defina as regras e canais.
+
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `canal_analise` | Canal (#) | **Obrigatório** | Onde as sugestões serão postadas para votação. |
+| `canal_resultado` | Canal (#) | **Obrigatório** | Onde as sugestões finalizadas (Aprovadas/Reprovadas) aparecerão. |
+| `anonimo` | Booleano | Opcional | Se `True`, o nome do autor da sugestão é ocultado. |
+| `emoji_positivo` | Emoji | Opcional | Ícone para "Sim" (Padrão: 👍). |
+| `emoji_negativo` | Emoji | Opcional | Ícone para "Não" (Padrão: 👎). |
+| `cor` | Texto (HEX) | Opcional | Cor da lateral do embed. |
+
+### 2. Iniciar Painel (`/sugestao iniciar`)
+Envia um embed fixo com um botão "Sugerir" no canal de análise. Isso evita spam de comandos no chat.
+
+### 3. Moderação (`/resultado`)
+Comando exclusivo para a staff aprovar ou rejeitar uma ideia.
+
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `sugestao_id` | ID | **Obrigatório** | ID da mensagem da sugestão (Ative o Modo Desenvolvedor). |
+| `decisao` | Seleção | **Obrigatório** | `Aprovar` (Verde) ou `Reprovar` (Vermelho). |
+| `resposta` | Texto | Opcional | Motivo da decisão (ex: "Aprovado! Será implementado na próxima atualização."). |
 
 ---
 
-## `/resultado`
-<span className="api-method-tag patch">PLUS</span>
-
-Aprova ou reprova uma sugestão.
-
-**Opções:**
-<ParamField query="sugestao_id" type="string" required>
-  ID da mensagem da sugestão.
-</ParamField>
-<ParamField query="decisao" type="string" required>
-  `Aprovar` ou `Reprovar` (move para o canal de resultados com a cor correspondente).
-</ParamField>
-<ParamField query="resposta" type="string">
-  Comentário da equipe sobre a decisão (ex: "Vamos implementar em breve!").
-</ParamField>
-
----
-
-## `/avaliacao`
+## ⭐ Avaliações
 <span className="api-method-tag post">PRO</span>
 
-Cria um painel de "Avalie nosso Atendimento/Servidor" com notas de 1 a 5 estrelas.
+<Note>Este módulo é exclusivo do **Plano Pro**.</Note>
 
-**Opções:**
-<ParamField query="configurar" type="string">
-  Define canais de embed e logs.
-</ParamField>
-<ParamField query="anonimo" type="boolean">
-  Se `True`, oculta quem enviou a avaliação.
-</ParamField>
+Crie um canal de "Prova Social" e monitore a qualidade do suporte da sua equipe. Os membros podem dar notas (1 a 5 estrelas) e deixar comentários.
 
----
+### 1. Configuração (`/avaliacao configurar`)
+Configure o ecossistema de feedbacks.
 
-## `/responder`
-<span className="api-method-tag patch">PRO</span>
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `canal_embed` | Canal (#) | **Obrigatório** | Onde ficará o painel fixo de "Deixe sua avaliação". |
+| `canal_avaliacoes` | Canal (#) | **Obrigatório** | Onde as avaliações recebidas serão postadas publicamente. |
+| `cargos_staff` | Cargo (@) | **Obrigatório** | Cargos permitidos a usar o comando `/responder` (ex: @Admin, @Mod). |
+| `anonimo` | Booleano | Opcional | Se `True`, oculta quem enviou a avaliação. |
+| `texto_embed` | Texto | Opcional | Texto descritivo do painel principal. |
+| `imagem` | Link (URL) | Opcional | Banner para o painel de avaliação. |
 
-Permite que a staff responda publicamente a uma avaliação recebida.
+### 2. Iniciar Painel (`/avaliacao iniciar`)
+Envia o painel interativo para o `canal_embed` configurado.
 
-**Opções:**
-<ParamField query="avaliacao_id" type="string" required>
-  ID da mensagem da avaliação.
-</ParamField>
-<ParamField query="resposta" type="string" required>
-  Texto da resposta da equipe.
-</ParamField>
+### 3. Responder Feedback (`/responder`)
+Mostre que você se importa. A staff pode responder publicamente a uma avaliação, criando uma thread ou respondendo no próprio embed.
+
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `avaliacao_id` | ID | **Obrigatório** | ID da mensagem da avaliação recebida. |
+| `resposta` | Texto | **Obrigatório** | Texto da resposta oficial da equipe. |
+
+<Info>
+**Dica de Gestão:** Use as avaliações para medir o NPS (Net Promoter Score) do seu servidor e bonificar staffs com melhores notas.
+</Info>
