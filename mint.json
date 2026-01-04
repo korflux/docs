@@ -5,10 +5,10 @@
         "og:image": "/image/og-image.webp"
     },
     "logo": {
-        "light": "/image/light.png",
-        "dark": "/image/dark.png"
+        "light": "/image/light.webp",
+        "dark": "/image/dark.webp"
     },
-    "favicon": "/image/favicon.png",
+    "favicon": "/image/favicon.webp",
     "colors": {
         "primary": "#007AFF",
         "light": "#3b96ff",
