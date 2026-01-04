@@ -28,51 +28,60 @@ Uma visão geral de tudo que o zNyx oferece para otimizar sua operação:
 
 # 💎 Planos e Preços
 
-O **zNyx** foi desenhado para escalar junto com o seu projeto. Oferecemos duas tiers focadas em momentos diferentes: desde a profissionalização essencial até operações complexas que exigem automação e identidade própria.
+O **zNyx** foi desenhado para escalar junto com o seu projeto. Oferecemos duas tiers focadas em momentos diferentes e um serviço adicional para quem quer potência máxima em IA sem dor de cabeça com infraestrutura.
 
 ### 🌟 Plano Plus
 A base sólida para servidores que buscam organização e estética profissional.
 
 ### 👑 Plano Pro
-A experiência definitiva com automação de IA, white-label total e recursos de engajamento.
+A experiência definitiva com automação, white-label total e prioridade.
 
 ## Comparativo de Recursos
 
-Confira a matriz completa de funcionalidades e escolha a que melhor se adapta à sua operação.
-
 | Recurso | Plano Plus | Plano Pro |
 | :--- | :---: | :---: |
-| **Investimento Mensal** | **R$ 49,00** | **R$ 149,00** |
-| **Suporte & SLA** | | |
-| Suporte via Discord | 24h Response Time | ⚡ **2h Response Time** |
+| **Investimento Mensal** | **R$ 29,90** | **R$ 79,90** |
+| **Suporte & Evolução** | | |
+| Canal de Suporte | Ticket | Ticket |
+| Tempo de Resposta (SLA) | 48h Úteis | ⚡ **12h Úteis** |
+| Atualizações Globais | ✅ Gratuitas | ✅ Gratuitas |
 | Uptime Garantido | 99,9% | 99,9% |
-| Auto-Restart (Watchdog) | ✅ | ✅ |
-| Suporte a Automação (n8n) | ❌ | ✅ |
 | **Identidade & Branding** | | |
 | Identidade Visual (Embeds) | **zNyx Branding** (Fixo) | 🎨 **WhiteLabel Completo** |
-| Cores Personalizadas | ✅ | ✅ |
 | Config do Rodapé (`/padrao`) | ❌ (Bloqueado) | ✅ (Personalizável) |
-| `/padrao` (Defaults) | Parcial (Só Cor) | Total (Cor + Rodapé) |
 | **Gestão & Utilitários** | | |
 | `/anunciar` (Painel Interativo) | ✅ | ✅ |
 | `/editanunciar` (Correção) | ❌ | ✅ |
-| `/pix` (Embed Visual de Cobrança) | ✅ | ✅ |
-| `/promo` (Embed Visual de Promoções) | ❌ | ✅ |
-| **Atendimento** | | |
-| Sistema de Tickets Completo | ✅ | ✅ |
-| Logs/Transcripts (.txt) | ✅ | ✅ |
-| Categorias Personalizáveis | ✅ | ✅ |
-| **Engajamento** | | |
+| `/pix` (Embed Visual) | ✅ | ✅ |
+| `/promo` (Embed Visual) | ❌ | ✅ |
+| **Atendimento & Engajamento** | | |
+| Sistema de Tickets | ✅ | ✅ |
 | Sistema de Sugestões | ✅ | ✅ |
 | Avaliações (`/avaliacao`) | ❌ | ✅ |
-| Sorteios (`/sortear`, `/reroll`) | ❌ | ✅ |
+| Sorteios (`/sortear`) | ❌ | ✅ |
 | Tópicos Automáticos | ❌ | ✅ |
-| **Monitoramento** | | |
+| **Monitoramento & Automação** | | |
 | `/status` (Painel em Tempo Real) | 1 Servidor | **Ilimitado** |
 | Modo Manutenção | ❌ | ✅ |
-| `/conexão` (Webhooks n8n) | ❌ | ✅ |
+| `/conexão` (Suporte a n8n) | ❌ | ✅ |
 
 > **Nota sobre o Plano Plus:** O rodapé dos embeds manterá a assinatura fixa: *"Desenvolvido por znyx.com.br"*. Apenas o Plano Pro permite remover ou alterar essa assinatura via `/padrao`.
+
+---
+
+### 🧠 Add-on: WorkFlow AI (+ R$ 20,00 / Flow)
+*Exclusivo para assinantes do Plano Pro.*
+
+Quer usar Inteligência Artificial no seu Discord mas não tem onde hospedar o n8n ou não sabe configurar a segurança? Nós cuidamos disso.
+
+Por um valor adicional, hospedamos e gerenciamos seu fluxo de IA com alto padrão de qualidade.
+
+* **Hospedagem Premium:** Sem custo extra com VPS ou servidores.
+* **Segurança Avançada:** Configuração com GuardRails para evitar respostas tóxicas ou alucinações da IA.
+* **System Prompt Personalizado:** Ajustamos a personalidade do agente para falar exatamente como sua marca.
+* **Pronto para Usar:** Entregamos o Webhook pronto para conectar no `/conexão`.
+
+> **Ideal para:** Donos de servidores que querem um Chatbot de suporte inteligente ou NPC interativo, mas não querem lidar com a complexidade técnica de servidores externos.
 
 ---
 
