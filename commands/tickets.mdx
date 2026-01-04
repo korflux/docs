@@ -1,0 +1,45 @@
+---
+title: Tickets e Suporte
+sidebarTitle: Tickets
+description: Atendimento profissional via tickets privados
+---
+
+Gerencie o suporte da sua comunidade com organização e logs.
+
+## `/ticket`
+<span className="api-method-tag get">PLUS</span>
+
+Configura o painel principal onde os membros abrirão os tickets.
+
+**Opções:**
+<ParamField query="categoria" type="string" required>
+  ID da **Categoria do Discord** onde os canais de ticket serão criados.
+</ParamField>
+<ParamField query="logs" type="channel" required>
+  Canal de texto para envio dos transcripts (`.txt`).
+</ParamField>
+<ParamField query="titulo" type="string">
+  Título do embed do painel.
+</ParamField>
+
+---
+
+## `/fecharticket`
+<span className="api-method-tag delete">PLUS</span>
+
+Fecha o ticket atual.
+*   Gera um arquivo de log (transcript) com toda a conversa.
+*   Envia o log para o canal configurado.
+*   Deleta o canal do ticket após 5 segundos.
+
+---
+
+## `/categorias`
+<span className="api-method-tag put">PLUS</span>
+
+Gerencia as opções que aparecem no menu de seleção do ticket (ex: Financeiro, Dúvidas).
+
+**Subcomandos:**
+*   `adicionar`: Cria uma nova categoria com emoji e cargos específicos de suporte.
+*   `remover`: Remove uma categoria existente.
+*   `listar`: Mostra todas as categorias configuradas.

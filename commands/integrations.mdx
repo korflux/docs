@@ -1,0 +1,38 @@
+---
+title: Integrações e Utilitários
+sidebarTitle: Integrações
+description: Automação avançada com n8n e Tópicos
+---
+
+<Note>Este módulo é exclusivo do **Plano Pro**.</Note>
+
+Expanda as capacidades do seu bot conectando-o a ferramentas externas.
+
+## `/conexao`
+<span className="api-method-tag post">PRO</span>
+
+Conecta um canal do Discord a um **Webhook do n8n**. Isso permite que você processe mensagens usando IA ou salve em bancos de dados externos.
+
+**Subcomandos:**
+*   `adicionar`: Vincula um canal a uma URL de webhook.
+*   `remover`: Desfaz a integração.
+*   `configurar`: Exibe o JSON Schema enviado para o n8n.
+
+**Opções de Modo:**
+*   `Todas as mensagens`: O bot encaminha tudo (ideal para logs ou IA que lê tudo).
+*   `Apenas menções`: O bot só encaminha quando é mencionado (ideal para Chatbots).
+
+---
+
+## `/topicos`
+<span className="api-method-tag put">PRO</span>
+
+Transforma um canal em um fórum simplificado.
+
+**Funcionalidade:**
+Ao ativar (`/topicos ativar`), toda nova mensagem enviada no canal virará automaticamente um Tópico (Thread).
+
+**Casos de uso:**
+*   Canais de divulgação de servidores.
+*   Canais de mídia/clips.
+*   Apresentações de membros.

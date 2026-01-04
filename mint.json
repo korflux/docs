@@ -1,0 +1,39 @@
+{
+    "$schema": "https://mintlify.com/schema.json",
+    "name": "zNyx",
+    "logo": {
+        "light": "/logo/light.png",
+        "dark": "/logo/dark.png"
+    },
+    "favicon": "/favicon.png",
+    "colors": {
+        "primary": "#007AFF",
+        "light": "#3b96ff",
+        "dark": "#0055b3",
+        "anchors": "#007AFF"
+    },
+    "navigation": [
+        {
+            "group": "Bem-vindo",
+            "pages": [
+                "introduction",
+                "plans"
+            ]
+        },
+        {
+            "group": "Comandos",
+            "pages": [
+                "commands/announcements",
+                "commands/giveaways",
+                "commands/tickets",
+                "commands/status",
+                "commands/suggestions",
+                "commands/integrations"
+            ]
+        }
+    ],
+    "footerSocials": {
+        "discord": "https://discord.gg/korflux",
+        "github": "https://github.com"
+    }
+}

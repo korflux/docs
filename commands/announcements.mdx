@@ -1,0 +1,76 @@
+---
+title: Anúncios e Promoções
+sidebarTitle: Anúncios
+description: Ferramentas para comunicação e vendas
+---
+
+Engaje sua comunidade com anúncios visuais e sistemas de vendas integrados.
+
+## `/anunciar`
+<span className="api-method-tag get">PLUS</span>
+
+Envia um anúncio personalizado no canal atual através de um painel interativo. O bot guiará você passo a passo.
+
+**Como usar:**
+1. Digite `/anunciar`.
+2. O bot abrirá um modal pedindo o Título e a Descrição.
+3. Após enviar, você pode anexar uma imagem se desejar.
+
+**Opções:**
+<ParamField query="cor" type="string">
+  Cor da lateral do embed em HEX (ex: `#FF0000`). Padrão: Verde.
+</ParamField>
+<ParamField query="rodape" type="string">
+  Texto pequeno no rodapé do anúncio.
+</ParamField>
+<ParamField query="imagem" type="string">
+  URL de uma imagem ou GIF para ilustrar o anúncio.
+</ParamField>
+
+---
+
+## `/editanunciar`
+<span className="api-method-tag patch">PRO</span>
+
+Permite corrigir ou atualizar um anúncio já enviado pelo bot, sem precisar apagar e postar de novo.
+
+**Opções:**
+<ParamField query="mensagem_id" type="string" required>
+  ID da mensagem do anúncio (ative o Modo Desenvolvedor do Discord para pegar).
+</ParamField>
+<ParamField query="manter_descricao" type="boolean">
+  `True` para manter o texto atual, `False` para escrever um novo.
+</ParamField>
+
+---
+
+## `/pix`
+<span className="api-method-tag get">PLUS</span>
+
+Gera um embed profissional de cobrança com botão "Copiar Chave".
+
+**Opções:**
+<ParamField query="valor" type="string" required>
+  O valor da cobrança (ex: `50,00`).
+</ParamField>
+<ParamField query="chave" type="string" required>
+  A chave PIX que será copiada pelo botão.
+</ParamField>
+
+---
+
+## `/promo`
+<span className="api-method-tag post">PRO</span>
+
+Cria um cupom de desconto com contagem regressiva e botões interativos.
+
+**Opções:**
+<ParamField query="desconto" type="string" required>
+  Texto do destaque (ex: `20% OFF`).
+</ParamField>
+<ParamField query="cupom" type="string" required>
+  O código do cupom (ex: `NATAL20`).
+</ParamField>
+<ParamField query="data_limite" type="string" required>
+  Validade no formato `DD/MM/AAAA HH:MM`.
+</ParamField>

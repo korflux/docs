@@ -1,0 +1,44 @@
+---
+title: Sorteios
+description: Sistema completo de sorteios com requisitos
+---
+
+<Note>Este módulo é exclusivo do **Plano Pro**.</Note>
+
+Realize sorteios justos e auditáveis diretamente no seu servidor.
+
+## `/sortear`
+<span className="api-method-tag post">PRO</span>
+
+Inicia um novo sorteio configurável.
+
+**Opções:**
+<ParamField query="ganhadores" type="number" required>
+  Quantidade de vencedores (ex: `1`, `3`).
+</ParamField>
+<ParamField query="data_final" type="string" required>
+  Encerramento em `DD/MM/AAAA HH:MM` (ex: `25/12/2026 23:59`).
+</ParamField>
+<ParamField query="cargos" type="role">
+  Menção de cargos obrigatórios para participar (vazio = todos).
+</ParamField>
+<ParamField query="fraude" type="boolean">
+  Se `True` (padrão), impede contas novas (< 7 dias) de ganhar.
+</ParamField>
+
+---
+
+## `/reroll`
+<span className="api-method-tag patch">PRO</span>
+
+Sorteia novos ganhadores para um sorteio já encerrado.
+
+<Warning>O sistema exclui automaticamente os ganhadores anteriores para evitar repetições.</Warning>
+
+**Opções:**
+<ParamField query="mensagem_id" type="string" required>
+  ID da mensagem do sorteio original.
+</ParamField>
+<ParamField query="ganhadores" type="number">
+  Quantidade de novos nomes (padrão é a mesma do sorteio original).
+</ParamField>

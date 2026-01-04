@@ -1,0 +1,45 @@
+---
+title: Status e Monitoramento
+sidebarTitle: Status
+description: Monitore seus servidores de Minecraft em tempo real
+---
+
+Mantenha seus jogadores informados sobre o estado da rede.
+
+## `/status`
+<span className="api-method-tag get">PLUS</span> <span className="api-method-tag get">PRO</span>
+
+Cria um painel auto-atualizável (a cada 10 min) com informações do servidor.
+
+<CardGroup cols={2}>
+  <Card title="Plano Plus" icon="star">
+    Limite de **1 Servidor** monitorado.
+  </Card>
+  <Card title="Plano Pro" icon="crown">
+    Monitoramento **Ilimitado** (múltiplos IPs).
+  </Card>
+</CardGroup>
+
+**Opções:**
+<ParamField query="canal" type="channel" required>
+  Onde o painel será enviado.
+</ParamField>
+<ParamField query="servidores" type="string" required>
+  IPs dos servidores separados por vírgula (ex: `jogar.rede.com, rankup.rede.com`).
+</ParamField>
+
+---
+
+## `/manutencao`
+<span className="api-method-tag patch">PRO</span>
+
+ Controle o status visual do seu servidor no painel.
+
+**Subcomandos:**
+*   `ligar`: Altera o ícone para "Manutenção" (Amarelo) e exibe o motivo.
+*   `desligar`: Retorna ao monitoramento normal (Online/Offline).
+
+**Opção:**
+<ParamField query="texto" type="string">
+  Motivo da manutenção para exibir no embed.
+</ParamField>
