@@ -43,7 +43,7 @@ A experiência definitiva com automação, white-label total e prioridade.
 | **Investimento Mensal** | **R$ 29,90** | **R$ 79,90** |
 | **Suporte & Evolução** | | |
 | Canal de Suporte | Ticket | Ticket |
-| Tempo de Resposta (SLA) | 48h Úteis | ⚡ **12h Úteis** |
+| Tempo de Resposta (SLA) | 24h Úteis | ⚡ **4h Úteis** |
 | Atualizações Globais | ✅ Gratuitas | ✅ Gratuitas |
 | Uptime Garantido | 99,9% | 99,9% |
 | **Identidade & Branding** | | |
