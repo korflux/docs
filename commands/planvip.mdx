@@ -1,0 +1,101 @@
+---
+title: Planos (VIPs)
+description: 'Sistema interativo para apresentação de planos e venda de VIPs'
+---
+
+O zNyx oferece um sistema completo para você apresentar e vender seus PLANOS VIPs ou produtos digitais diretamente no Discord. Com um menu interativo (dropdown), o membro seleciona o plano que deseja ver e recebe todos os detalhes de forma privada e segura.
+
+## 💎 `/planos`
+<Note>Disponível nos Planos: **Plus** (2 Planos) e **Pro** (10 Planos)</Note>
+
+O comando principal gerencia todo o ciclo de vida dos seus produtos: criação, edição, listagem e publicação do painel de vendas.
+
+---
+
+### Adicionando um Novo Plano
+
+Use o subcomando `adicionar` para registrar um novo produto no sistema.
+
+#### `/planos adicionar`
+O bot iniciará um fluxo de criação interativo. Após executar o comando, você terá **5 minutos** para enviar a descrição detalhada do plano no chat.
+
+**Argumentos:**
+| Opção | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `titulo` | Texto | O nome do plano (ex: `VIP Ouro`). |
+| `thumbnail` | Link (URL) | Imagem pequena (quadrada) que aparece ao lado do título. |
+| `imagem` | Link (URL) | Imagem grande (banner) do embed de detalhes. |
+| `cor` | Texto (HEX) | Cor da lateral do embed. |
+| `link_compra` | Link (URL) | URL para o botão "Adquirir" (ex: Link do Mercado Pago/Site). |
+| `rodape` | Texto | <Tooltip tip="Recurso exclusivo do Plano Pro">**PRO**</Tooltip> Texto do rodapé do embed. |
+
+<Info>
+**Dica:** Capriche na descrição! Ela suporta formatação do Discord como **negrito**, *itálico* e até emojis personalizados do seu servidor.
+</Info>
+
+---
+
+### Publicando o Painel de Vendas
+
+Depois de criar seus planos, você precisa "publicá-los" em um canal para que os membros possam ver.
+
+#### `/planos configurar`
+Prepara o embed inicial que contém o menu de seleção (dropdown).
+**Argumentos:**
+| Opção | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `canal` | Canal | Onde o painel será fixado. |
+| `imagem` | Link (URL) | Banner do painel principal de vendas. |
+| `cor` | Texto (HEX) | Cor do painel principal. |
+| `rodape` | Texto | Texto do rodapé. |
+
+#### `/planos iniciar`
+Efetivamente envia o painel configurado para o canal.
+* **Como funciona:** O bot envia uma mensagem com um menu Dropdown contendo todos os seus planos. Ao selecionar uma opção, o usuário recebe uma mensagem efêmera (só ele vê) com os detalhes e o botão de compra.
+* **Cooldown:** Existe uma proteção de 30 segundos entre visualizações para evitar spam.
+
+---
+
+### Gerenciando Planos Existentes
+
+#### `/planos listar`
+Exibe uma lista técnica de todos os planos cadastrados, mostrando seus **IDs**, títulos e links de compra. Use isso para pegar o ID necessário para editar ou remover.
+
+#### `/planos editar`
+Atualiza qualquer informação de um plano já criado sem precisar deletar e fazer de novo.
+
+**Argumentos:**
+| Opção | Tipo | Obrigatoriedade | Descrição |
+| :--- | :--- | :--- | :--- |
+| `id` | Número | **Obrigatório** | O ID do plano (veja em `/planos listar`). |
+| `titulo` | Texto | Opcional | Novo título. |
+| `descricao` | Texto | Opcional | `True` para reescrever a descrição no chat. |
+| `link_compra` | Link | Opcional | Novo link de pagamento. |
+| `thumbnail` | Link | Opcional | Nova imagem pequena. |
+| `imagem` | Link | Opcional | Novo banner. |
+| `cor` | HEX | Opcional | Nova cor. |
+
+<Tip>
+**Tokens Especiais na Edição:**
+* `padrao#`: Reseta o campo para o valor padrão do sistema.
+* `remover#`: Remove o conteúdo do campo (ex: tirar a imagem ou thumbnail).
+</Tip>
+
+#### `/planos remover`
+Exclui permanentemente um plano do banco de dados.
+**Argumentos:**
+| Opção | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `id` | Número | O ID do plano que será deletado. |
+
+---
+
+## Limits e Diferenças entre Planos zNyx
+
+O sistema de planos consome recursos significativos, por isso possui limites baseados na sua assinatura do zNyx:
+
+| Limite | Plano Plus | Plano Pro |
+| :--- | :---: | :---: |
+| **Quantidade Máxima** | 2 Planos | 10 Planos |
+| **Personalização de Rodapé** | ❌ (Marca zNyx) | ✅ (Personalizável) |
+| **Tokens de Edição** | ❌ | ✅ |

@@ -64,6 +64,8 @@ A experiência definitiva com automação, white-label total e prioridade.
 | `/status` (Painel em Tempo Real) | 1 Servidor | **Ilimitado** |
 | Modo Manutenção | ❌ | ✅ |
 | `/conexão` (Suporte a n8n) | ❌ | ✅ |
+| **Planos & VIPs** | | |
+| Max. Planos VIPs | 2 Planos | 10 Planos |
 
 > **Nota sobre o Plano Plus:** O rodapé dos embeds manterá a assinatura fixa: *"Desenvolvido por znyx.com.br"*. Apenas o Plano Pro permite remover ou alterar essa assinatura via `/padrao`.
 
@@ -326,6 +328,47 @@ Configura o painel principal de tickets.
 
 ### `/fecharticket`
 Fecha o ticket atual. Gera transcript/log no canal de logs e deleta o canal após 5 segundos.
+
+---
+
+## 💎 Planos (VIPs)
+
+Sistema interativo para apresentação de planos/VIPs do servidor.
+
+### `/planos adicionar`
+Adiciona um novo plano ao sistema.
+- **Fluxo:** Após executar, envie a descrição do plano no chat (5 minutos).
+- **Opções:**
+  - `titulo` (Opcional): Título do plano.
+  - `thumbnail` (Opcional): URL de imagem 1x1.
+  - `imagem` (Opcional): URL da imagem do embed.
+  - `cor` (Opcional): Cor HEX da lateral.
+  - `rodape` (Opcional): Texto do rodapé. **(Exclusivo Plano Pro)**
+  - `link_compra` (Opcional): URL para o botão "Adquirir".
+- **Limites:** Plus (2 planos) | Pro (10 planos).
+
+### `/planos remover`
+Remove um plano existente pelo ID.
+- **Opção:** `id` (Obrigatório): ID do plano (visível em `/planos listar`).
+
+### `/planos editar`
+Edita campos de um plano existente.
+- **Opções:** `id` (Obrigatório), `titulo`, `thumbnail`, `imagem`, `cor`, `rodape`, `link_compra`, `descricao`.
+- **Tokens Especiais:** `padrao#` para resetar, `remover#` para limpar.
+
+### `/planos listar`
+Lista todos os planos configurados com IDs, títulos e links.
+
+### `/planos configurar`
+Configura o embed inicial que aparece com o dropdown.
+- **Fluxo:** Após executar, envie a descrição no chat (5 minutos).
+- **Opções:**
+  - `canal` (Obrigatório): Canal onde o embed será enviado.
+  - `imagem`, `cor`, `rodape`: Personalização do embed inicial.
+
+### `/planos iniciar`
+Envia o embed com dropdown no canal configurado. Usuários selecionam um plano para ver detalhes em mensagem privada (ephemeral).
+- **Cooldown:** 30 segundos entre visualizações por usuário.
 
 ---
 
