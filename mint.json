@@ -38,6 +38,7 @@
                 "commands/status",
                 "commands/suggestions",
                 "commands/tickets",
+                "commands/planvip",
                 "commands/topics"
             ]
         }
