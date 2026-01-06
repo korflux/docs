@@ -21,6 +21,40 @@ Vincula o sistema de vendas a um canal fixo.
 
 ---
 
+### `adicionar`
+Cria um novo plano no banco de dados do bot. Após executar o comando, um modal será aberto para configurar título, descrição, preço e vantagens.
+
+<ParamField query="id" type="Integer" required>
+  O número identificador do plano (ex: 1).
+</ParamField>
+
+---
+
+### `editar`
+Altera as informações de um plano já existente através do formulário (modal).
+
+<ParamField query="id" type="Integer" required>
+  O ID do plano que deseja modificar.
+</ParamField>
+
+---
+
+### `listar`
+Exibe todos os planos cadastrados, seus IDs e status atuais.
+
+---
+
+### `remover`
+Exclui permanentemente um plano do sistema.
+
+<ParamField query="id" type="Integer" required>
+  O ID do plano que deseja apagar.
+</ParamField>
+
+---
+
+---
+
 ### `iniciar`
 Dispara a criação do carrossel interativo de planos.
 
@@ -45,6 +79,7 @@ Ao navegar pelo menu, o jogador terá acesso a:
 | Operação | Cargos Sugeridos | Permissão Necessária |
 | :--- | :--- | :--- |
 | Configurar Loja | Donos / Administradores | Administrador |
+| Gerir Planos | Administradores | Administrador |
 | Iniciar Painel | Administradores | Administrador |
 
 <Note>

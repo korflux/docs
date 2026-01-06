@@ -11,10 +11,19 @@ Avaliações reais e positivas reduzem a fricção no momento da compra e criam 
 
 ---
 
-## ⭐ Como Funciona o Coletor
+## ⭐ Gerenciamento e Coleta
+
+### `configurar`
+Vincula o sistema de avaliações a um canal específico onde os depoimentos serão exibidos publicamente.
+
+<ParamField query="canal" type="Canal (#)" required>
+  O canal de exibição (ex: #depoimentos).
+</ParamField>
+
+---
 
 ### `iniciar`
-Este comando envia o Painel de Avaliações em um canal estratégico (ex: `#avaliacoes` ou `#depoimentos`).
+Este comando envia o Painel de Avaliações em um canal estratégico.
 
 *   **Processo de Coleta:**
     1. O jogador clica no botão correspondente à nota desejada (1 a 5 estrelas).
@@ -40,6 +49,7 @@ Este comando envia o Painel de Avaliações em um canal estratégico (ex: `#aval
 
 | Operação | Cargos Sugeridos | Permissão Necessária |
 | :--- | :--- | :--- |
+| Configurar Sistema | Administradores | Administrador |
 | Iniciar Coletor | Administradores | Administrador |
 
 <Note>

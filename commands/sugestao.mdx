@@ -11,6 +11,15 @@ Com este módulo, você elimina o caos de "conversas sobre mudanças" no chat ge
 
 ## 💡 Comandos de Operação
 
+### `configurar`
+Prepara o sistema para receber sugestões, vinculando as categorias e canais necessários.
+
+<ParamField query="canal" type="Canal (#)" required>
+  O canal onde as sugestões aprovadas serão postadas.
+</ParamField>
+
+---
+
 ### `iniciar`
 Envia o painel de sugestões no canal atual. Este painel contém um botão interativo que dispara o processo de coleta de ideias.
 
@@ -21,10 +30,24 @@ Envia o painel de sugestões no canal atual. Este painel contém um botão inter
 
 ---
 
+### `responder`
+Permite que a administração responda a uma sugestão sem necessariamente dar um veredito final imediato.
+
+<ParamField query="id" type="Integer" required>
+  O número de identificação da sugestão.
+</ParamField>
+
+<ParamField query="resposta" type="String" required>
+  O comentário da Staff sobre a ideia.
+</ParamField>
+
+---
+
 ### `resultado`
 Este é o comando de veredito, onde a administração define o destino de uma sugestão enviada.
 
 *   **Impacto Visual:** Ao dar um resultado, o bot edita o embed original da sugestão, alterando sua cor e adicionando o motivo da decisão, informando a todos se a ideia foi aceita ou descartada.
+
 <ParamField query="id" type="Integer" required>
   O número de identificação da sugestão (exibido no rodapé do embed).
 </ParamField>
@@ -35,6 +58,21 @@ Este é o comando de veredito, onde a administração define o destino de uma su
 
 <ParamField query="motivo" type="String">
   Explicação detalhada da decisão.
+</ParamField>
+
+---
+
+### `status`
+<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO EXCLUSIVO DO PLANO PRO**</Tooltip>
+
+Define o estado atual de uma sugestão já aceita (ex: Em Desenvolvimento, Finalizado, etc).
+
+<ParamField query="id" type="Integer" required>
+  O número de identificação da sugestão.
+</ParamField>
+
+<ParamField query="valor" type="String" required>
+  O novo status da sugestão (ex: "Em Desenvolvimento").
 </ParamField>
 
 ---
@@ -56,8 +94,11 @@ Este é o comando de veredito, onde a administração define o destino de uma su
 
 | Operação | Cargos Sugeridos | Permissão Necessária |
 | :--- | :--- | :--- |
+| Configurar Sistema | Administradores | Administrador |
 | Iniciar Sistema | Administradores | Administrador |
+| Gerir Respostas | Administradores | Administrador |
 | Dar Resultado | Administradores | Administrador |
+| Alterar Status | Administradores | Administrador |
 
 <Note>
   Para garantir a integridade do processo de decisão, todos os comandos de gestão de sugestões exigem a permissão de **Administrador**.

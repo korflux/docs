@@ -1,0 +1,95 @@
+---
+title: "Configuração Inicial"
+description: "Guia passo a passo para criar sua aplicação no Discord e ativar o bot."
+---
+
+Para colocarmos o sistema no ar com a sua marca, você precisa criar a aplicação no Discord e nos enviar as credenciais. Siga exatamente a ordem abaixo para garantir o funcionamento total de todos os módulos.
+
+---
+
+## 1. Criação da Aplicação
+
+<Steps>
+  <Step title="Acesse o Portal">
+    Entre no [Discord Developer Portal](https://discord.com/developers/applications).
+  </Step>
+  <Step title="Nova Aplicação">
+    Clique no botão **"New Application"** localizado no canto superior direito da página.
+  </Step>
+</Steps>
+
+---
+
+## 2. Configurações Básicas
+
+No menu lateral em **Settings**, realize os seguintes ajustes:
+
+### 📝 General Information
+- Defina o **Icon** (Logo do Bot).
+- Defina o **Name** (Nome do Bot).
+- Adicione uma **Description** e **Tags** se desejar.
+- Clique em **Save Changes**.
+
+### 🛠️ Installation
+- Desmarque a opção **"User Install"**.
+- Em **"Install Link"**, selecione a opção **"None"**.
+- Clique em **Save Changes**.
+
+### 🤖 Bot
+Nesta aba, realize as configurações críticas de segurança e permissões:
+
+1.  Desmarque a opção **"Public Bot"** (Somente você poderá adicioná-lo).
+2.  Role para baixo até a seção **Privileged Gateway Intents** e **MARQUE** as 3 opções:
+    - ✅ **Presence Intent**
+    - ✅ **Server Members Intent**
+    - ✅ **Message Content Intent** (Crucial para comandos e logs).
+3.  Clique em **Save Changes**.
+
+---
+
+## 3. Convidando o Bot (OAuth2)
+
+1.  No menu lateral, clique em **OAuth2** > **URL Generator**.
+2.  Em **Scopes**, marque a caixa **"bot"**.
+3.  Em **Bot Permissions**, marque a caixa **"Administrator"**.
+4.  Em **Integration Type**, certifique-se que **"Guild Install"** está selecionado.
+5.  **Copie o link gerado** no final da página (Generated URL).
+6.  Cole esse link no seu navegador, selecione o seu servidor e clique em **Autorizar**.
+
+---
+
+## 4. Credenciais de Acesso
+Essas são as chaves que nossa equipe precisa para rodar o seu sistema.
+
+### 🔑 Token do Bot
+1.  Volte para a aba **Bot** no menu lateral.
+2.  Clique em **"Reset Token"** e confirme.
+3.  Clique em **"Copy"** e guarde este código.
+
+### 🆔 Client ID
+1.  Vá na aba **OAuth2** no menu lateral.
+2.  Copie o **"Client ID"**.
+
+---
+
+## 5. Identificação do Servidor
+
+1.  No seu Discord pessoal, vá em **Configurações (Engrenagem)** > **Avançado**.
+2.  Habilite o **"Modo Desenvolvedor"**.
+3.  Volte para a lista de servidores, clique com o **botão direito** no ícone do seu servidor.
+4.  Clique em **"Copiar ID do Servidor"**.
+
+---
+
+## 📝 Resumo do que nos enviar
+Após concluir os passos acima, envie para nossa equipe de suporte:
+
+```text
+Token do Bot: [Seu Token Aqui]
+Client ID: [Seu Client ID Aqui]
+ID do Servidor: [ID do Servidor Aqui]
+```
+
+<Note>
+  **Segurança:** Nunca compartilhe o Token do seu bot com terceiros ou em canais públicos. Ele dá acesso total à sua aplicação.
+</Note>

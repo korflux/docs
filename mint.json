@@ -24,7 +24,8 @@
             "group": "Bem-vindo",
             "pages": [
                 "introduction",
-                "plans"
+                "plans",
+                "setup/initial-setup"
             ]
         },
         {

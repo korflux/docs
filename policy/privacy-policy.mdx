@@ -1,44 +1,86 @@
 ---
 title: "Política de Privacidade"
-description: "Como o zNyx lida com os dados do seu servidor e dos seus membros."
+description: "Saiba como o zNyx protege e processa os dados da sua comunidade."
 ---
 
-A sua privacidade e a segurança dos dados do seu servidor são prioridades máximas para o zNyx. Esta política descreve quais informações coletamos e como elas são utilizadas.
+*Última atualização: Janeiro de 2026*
 
----
-
-## 📊 Dados Coletados
-
-Para funcionar corretamente, o zNyx coleta apenas o estritamente necessário:
-
-1.  **Identificadores (IDs):** Armazenamos os IDs de Servidor, Canais, Cargos e Usuários para aplicar configurações e permissões.
-2.  **Conteúdo de Mensagens (Logs):** 
-    *   No sistema de **Tickets**, o conteúdo das mensagens é armazenado temporariamente para gerar o Transcript (log) solicitado pela sua equipe.
-    *   No sistema de **Conexões**, as mensagens são encaminhadas para o seu Webhook configurado e não permanecem em nosso banco de dados.
-3.  **Configurações Visuais:** Cores, textos de rodapé e IPs de servidores Minecraft informados via comandos.
+No **zNyx**, levamos a sua privacidade a sério. Esta política descreve como coletamos, usamos e protegemos as informações processadas pelo nosso bot e serviços relacionados. Nosso compromisso é com a transparência e a segurança dos dados da sua comunidade.
 
 ---
 
-## 🔐 Segurança da Informação
+## 1. Dados que Coletamos
+Para o funcionamento correto das funcionalidades descritas em nossa documentação, o zNyx coleta e processa os seguintes tipos de dados:
 
-*   **Criptografia:** Todos os dados armazenados em nosso banco de dados passam por camadas de criptografia e acesso restrito.
-*   **Não Compartilhamento:** O zNyx **nunca** vende ou compartilha dados dos seus membros com terceiros. As únicas integrações externas (como n8n) são configuradas e controladas diretamente por você.
-*   **Transcripts:** Os arquivos de log de tickets são privados e acessíveis apenas através de links únicos gerados para a sua Staff no canal de logs definido.
+<AccordionGroup>
+  <Accordion title="Identificação do Discord" icon="discord">
+    ID de usuário, Nome de Usuário (Username), Apelido (Nickname) e Avatar. Esses são dados públicos fornecidos pela API do Discord.
+  </Accordion>
+  <Accordion title="Conteúdo de Texto" icon="message">
+    - Mensagens em canais de **Tickets** para geração de Transcripts.
+    - Mensagens em canais com **IA/n8n** para processamento.
+    - Textos de sugestões e avaliações enviadas pelos usuários.
+  </Accordion>
+  <Accordion title="Dados de Configuração" icon="gear">
+    - **Chaves PIX** inseridas para a geração de embeds de pagamento.
+    - **IPs e portas** de servidores de Minecraft para monitoramento.
+  </Accordion>
+  <Accordion title="Logs Técnicos" icon="bug">
+    Registros de erros e interações com comandos para fins de manutenção e estabilidade do sistema (Watchdog).
+  </Accordion>
+</AccordionGroup>
 
 ---
 
-## 🗑️ Direito ao Esquecimento
+## 2. Como Usamos seus Dados
+Utilizamos as informações coletadas estritamente para:
 
-A qualquer momento, o administrador do servidor pode solicitar a exclusão completa de todos os dados vinculados ao seu ID de servidor através do nosso [Discord de Suporte](https://discord.gg/3Mz97UjDta).
+1.  **Fornecimento do Serviço:** Operar os sistemas de tickets, sorteios, monitoramento e automação.
+2.  **Auditoria e Segurança:** Gerar arquivos de logs (transcripts) entregues aos administradores.
+3.  **Processamento de IA:** No caso do Plano Pro com Add-on, as mensagens são processadas para gerar respostas inteligentes.
+
+<Note>
+  **Importante:** Nós não vendemos, alugamos ou compartilhamos seus dados pessoais com terceiros para fins de marketing ou publicidade.
+</Note>
 
 ---
 
-## 📜 Termos do Discord
+## 3. Armazenamento e Retenção
 
-O zNyx está em total conformidade com os Termos de Serviço e as Diretrizes da Comunidade do Discord. O uso do bot implica na aceitação mútua desses termos.
+- **Transcripts de Tickets:** São gerados em arquivos HTML/Texto e armazenados no canal de logs definido pelo administrador. O zNyx não mantém um histórico permanente dessas conversas em banco de dados próprio após o envio do log.
+- **Dados de Configuração:** As configurações do servidor são armazenadas enquanto o bot estiver ativo no servidor.
 
 ---
 
-<Tip>
-  Nossa infraestrutura de monitoramento de erros foca em logs técnicos de falhas, nunca capturando dados pessoais sensíveis dos usuários.
-</Tip>
+## 4. Compartilhamento com Terceiros
+Para operar, o zNyx interage com os seguintes serviços:
+- **Discord:** Plataforma base da operação.
+- **Provedores de IA (OpenAI/Anthropic):** Apenas para usuários do "WorkFlow AI".
+- **Infraestrutura:** Servidores de hospedagem (VPS) seguros.
+
+---
+
+## 5. Seus Direitos (LGPD)
+Você é o dono dos seus dados. De acordo com a Lei Geral de Proteção de Dados, você tem direito a:
+
+<CardGroup cols={2}>
+  <Card title="Direito ao Esquecimento" icon="eraser">
+    Solicitar a exclusão de quaisquer dados seus armazenados.
+  </Card>
+  <Card title="Acesso e Transparência" icon="eye">
+    Saber quais dados possuímos sobre você ou seu servidor.
+  </Card>
+  <Card title="Revogação" icon="plug">
+    Revogar a permissão de uso do bot a qualquer momento removendo-o do servidor.
+  </Card>
+</CardGroup>
+
+---
+
+## 6. Segurança
+Adotamos medidas de segurança adequadas para proteger seus dados contra acesso não autorizado. Nosso código opera em containers isolados e com monitoramento constante. No entanto, lembre-se de que nenhum método de transmissão pela internet é 100% seguro.
+
+---
+
+## 7. Alterações nesta Política
+Podemos atualizar esta política periodicamente. Avisaremos sobre mudanças significativas através dos nossos canais oficiais de comunicação.
