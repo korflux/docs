@@ -25,21 +25,33 @@
             "pages": [
                 "introduction",
                 "plans",
-                "setup/initial-setup"
+                "setup/initial-setup",
+                "setup/troubleshooting"
             ]
         },
         {
-            "group": "Comandos",
+            "group": "Módulos de Administração",
             "pages": [
                 "commands/padrao",
-                "commands/anuncio",
-                "commands/ticket",
                 "commands/status",
-                "commands/sorteio",
                 "commands/conexao",
+                "advanced/automation"
+            ]
+        },
+        {
+            "group": "Módulos de Engajamento",
+            "pages": [
+                "commands/sorteio",
                 "commands/sugestao",
                 "commands/avaliacao",
-                "commands/topicos",
+                "commands/topicos"
+            ]
+        },
+        {
+            "group": "Módulos de Vendas & Suporte",
+            "pages": [
+                "commands/ticket",
+                "commands/anuncio",
                 "commands/planos"
             ]
         },

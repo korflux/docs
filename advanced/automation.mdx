@@ -1,0 +1,101 @@
+---
+title: "Showcase de Automação"
+description: "Aprenda a conectar o zNyx ao n8n ou Make para criar fluxos inteligentes e integração com IA."
+---
+
+O comando `/conexao` é a ferramenta mais poderosa do zNyx Pro, permitindo que você envie o fluxo de dados do seu Discord para qualquer plataforma de automação. Abaixo, detalhamos como configurar o recebimento e o envio de mensagens.
+
+---
+
+## 📥 Recebendo dados do zNyx
+
+Para iniciar, você deve configurar um ponto de entrada (Webhook) na sua ferramenta de preferência (**n8n** ou **Make**).
+
+<Steps>
+  <Step title="Configurar Webhook">
+    Crie um nó do tipo **Webhook** com as seguintes configurações:
+    - **Method:** POST
+    - **Authentication:** None
+    - **Respond:** Immediately ⚠️ *Importante!*
+  </Step>
+  <Step title="Payload de Entrada">
+    O zNyx enviará um JSON estruturado com os seguintes campos sempre que uma mensagem for capturada:
+    
+    ```json
+    {
+      "messageId": "ID da Mensagem",
+      "userId": "ID do Usuário",
+      "username": "Nome do Usuário",
+      "displayName": "Apelido no Servidor",
+      "content": "Conteúdo da mensagem",
+      "channelId": "ID do Canal",
+      "guildId": "ID do Servidor",
+      "timestamp": "Data/Hora",
+      "attachments": ["links de anexos"]
+    }
+    ```
+  </Step>
+</Steps>
+
+<Note>
+  © Todos os direitos reservados zNyx
+</Note>
+
+---
+
+## 📤 Enviando Respostas
+
+Existem duas formas principais de fazer o seu fluxo de automação responder de volta para o Discord.
+
+### Opção 1: Via Webhook do Discord
+Ideal para envios simples ou logs rápidos usando o nó nativo do Make/n8n.
+
+*   **Nó:** HTTP Request (ou Discord Webhook no Make)
+*   **Method:** POST
+*   **URL:** `[Sua URL do Webhook do Canal]`
+*   **Body Content Type:** JSON
+*   **JSON Structure:**
+    ```json
+    { 
+      "content": "Resposta do agente ou sistema" 
+    }
+    ```
+
+<Tip>
+  **Como criar o webhook:** Vá em Config. do Canal → Integrações → Webhooks → Novo.
+</Tip>
+
+<Note>
+  © Todos os direitos reservados zNyx
+</Note>
+
+---
+
+### Opção 2: Responder como o Bot (Recomendado)
+Esta opção utiliza o próprio token do seu bot, permitindo funções avançadas como **Responder (Reply)** a uma mensagem específica.
+
+*   **Nó:** Discord - Send a Message
+*   **Connection Type:** Bot Token (Configure com o Token do seu Bot)
+*   **Channel:** Use a expressão `{{ $json.channelId }}` (dinâmico)
+*   **Message:** Sua resposta customizada ou gerada por IA.
+
+#### Fazendo um "Reply" (Resposta Direta)
+Para que a mensagem apareça como uma resposta à mensagem original do usuário:
+1. Vá em **Options** → **Add Option**.
+2. Selecione **Message to Reply to**.
+3. Use a expressão: `{{ $json.messageId }}` (n8n) ou `{{ $json.body.messageId }}` (Make).
+
+<Note>
+  © Todos os direitos reservados zNyx
+</Note>
+
+---
+
+<CardGroup cols={2}>
+  <Card title="Integração com IA" icon="robot">
+    Conecte o nó de Webhook a um nó da OpenAI para criar um suporte que responde automaticamente as dúvidas dos jogadores.
+  </Card>
+  <Card title="Logs Externos" icon="database">
+    Envie o payload para uma Google Sheet ou Banco de Dados para analisar o comportamento da sua comunidade.
+  </Card>
+</CardGroup>

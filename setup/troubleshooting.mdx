@@ -1,0 +1,47 @@
+---
+title: "Resolução de Problemas"
+description: "Soluções rápidas para os erros mais comuns na configuração e uso do zNyx."
+---
+
+Mesmo com uma infraestrutura robusta, alguns erros de configuração no Portal do Desenvolvedor do Discord ou no próprio servidor podem impedir o funcionamento do bot. Abaixo listamos os problemas mais frequentes e como resolvê-los.
+
+---
+
+## 🛠️ Problemas de Ativação
+
+### 1. O Bot está Offline
+Se você já enviou o Token e o Bot ainda aparece offline em seu servidor:
+*   **Causa:** Geralmente ocorre quando o bot sofreu um "Reset Token" no Portal do Discord e o novo token ainda não foi atualizado em nossa host.
+*   **Solução:** Entre em nosso [Discord de Suporte](https://discord.gg/3Mz97UjDta) e solicite a atualização do Token.
+
+### 2. Comandos não aparecem (Slash Commands)
+*   **Causa:** O Discord pode levar alguns minutos para propagar novos comandos.
+*   **Solução:** Reinicie seu cliente Discord (Ctrl+R no PC) ou saia e entre novamente no servidor. Verifique se o bot tem a permissão `Use Application Commands`.
+
+---
+
+## 🤖 Problemas em Comandos
+
+### 1. Erro de "Intents" (Privileged Gateway Intents)
+Se o bot não reage a cliques em botões, não gera tickets ou não lê mensagens:
+*   **Erro comum:** `Error: Client is missing Intent...`
+*   **Solução:** Vá ao [Discord Developer Portal](https://discord.com/developers/applications) > Escolha seu Bot > Aba **Bot**.
+*   **Ativação:** Certifique-se que as 3 opções em **Privileged Gateway Intents** (Presence, Server Members, Message Content) estão **LIGADAS**.
+
+### 2. O Bot não tem permissão para enviar logs
+*   **Sintoma:** O comando `/ticket configurar` funciona, mas os logs não são enviados.
+*   **Solução:** Verifique se o cargo do bot (zNyx) tem permissão de **Ver Canal** e **Enviar Mensagens** no canal de logs escolhido.
+
+---
+
+## 📈 Status e Monitoramento
+
+### O painel de status diz "Offline" mas o servidor está "Online"
+*   **Causa:** O IP ou Porta informados no `/status configurar` podem estar bloqueados por um Firewall na sua host de Minecraft.
+*   **Solução:** Verifique se a porta do seu servidor (geralmente 25565) está aberta para conexões externas. O zNyx usa o protocolo SLP para o ping.
+
+---
+
+<Tip>
+  Não encontrou seu problema aqui? Nossa equipe de Staff Pro está disponível para acesso remoto e diagnóstico avançado em nosso servidor de suporte.
+</Tip>

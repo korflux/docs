@@ -15,11 +15,9 @@ A personalização é um dos pilares do zNyx, pois entendemos que a autoridade d
 Este subcomando define a **Cor Lateral (Hexadecimal)** que será aplicada em 100% dos embeds enviados pelo bot no servidor. Isso cria uma experiência de marca unificada para seus jogadores.
 
 *   **Por que usar?** Uma cor consistente ajuda os jogadores a identificarem mensagens oficiais do bot instantaneamente, aumentando a confiança e a estética do chat.
-*   **Parâmetros:**
-
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `valor` | String (HEX) | Sim | O código hexadecimal da cor (ex: #007AFF). |
+<ParamField query="valor" type="String (HEX)" required>
+  O código hexadecimal da cor (ex: #007AFF).
+</ParamField>
 
 *   **Exemplo de Uso:**
 ```bash
@@ -32,17 +30,15 @@ Este subcomando define a **Cor Lateral (Hexadecimal)** que será aplicada em 100
 
 ---
 
-### 📝 `rodape`
-<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO EXCLUSIVO DO PLANO PRO**</Tooltip>
+### 📝 `rodape` <Badge type="pro">Exclusivo Pro</Badge>
 
 Permite a customização total do pequeno texto que aparece na base (footer) de cada embed do bot.
 
 *   **Impacto no Branding:** No Plano Pro, você pode remover qualquer menção ao zNyx e inserir o slogan do seu servidor, transformando o bot em uma ferramenta aparentemente nativa ("WhiteLabel").
-*   **Parâmetros:**
 
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `texto` | String | Sim | O texto que aparecerá no rodapé das mensagens. |
+<ParamField query="texto" type="String" required>
+  O texto que aparecerá no rodapé das mensagens.
+</ParamField>
 
 *   **Exemplo de Uso:**
 ```bash
