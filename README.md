@@ -38,7 +38,6 @@ A experiência definitiva com automação, white-label total e recursos ilimitad
 | Recurso | Plano Plus | Plano Pro |
 | :--- | :---: | :---: |
 | **Investimento Mensal** | **R$ 29,90** | **R$ 79,90** |
-| Uptime Garantido | 99,9% | 99,9% |
 | Tempo de Resposta (SLA) | 24h | ⚡ 4h |
 | Atualizações Globais | ✅ | ✅ |
 | Auto-Restart | ✅ | ✅ |
