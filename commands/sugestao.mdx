@@ -3,42 +3,58 @@ title: "Sistema de Sugestões (/sugestao)"
 description: "Dê voz à sua comunidade e organize as melhorias do seu servidor."
 ---
 
-O sistema de sugestões permite que os jogadores enviem ideias, que podem ser votadas por outros membros e avaliadas pela equipe de administração.
+O sistema de sugestões do zNyx permite que os jogadores enviem ideias de forma organizada, incentivando o engajamento através de votações coletivas e permitindo que a administração tome decisões baseadas no feedback real da comunidade.
+
+Com este módulo, você elimina o caos de "conversas sobre mudanças" no chat geral, centralizando tudo em um fluxo de aprovação profissional.
 
 ---
 
 ## 💡 Comandos de Operação
 
 ### `iniciar`
-Envia o painel de sugestões no canal atual, com um botão para os usuários enviarem suas ideias.
+Envia o painel de sugestões no canal atual. Este painel contém um botão interativo que dispara o processo de coleta de ideias.
 
-*   **Uso:** `/sugestao iniciar`
-*   **Processo:** 
+*   **Processo Detalhado:** 
     1. O usuário clica no botão "Sugerir".
-    2. Um modal abre para o usuário descrever sua ideia.
+    2. Um modal abre solicitando o título e a descrição da sugestão.
     3. A sugestão é postada no canal com reações de Voto Positivo (✅) e Voto Negativo (❌).
 
 ---
 
 ### `resultado`
-Define o status oficial de uma sugestão já enviada.
+Este é o comando de veredito, onde a administração define o destino de uma sugestão enviada.
 
-*   **Uso:** `/sugestao resultado id:<ID> decisao:<aprovar/reprovar> [motivo:<Texto>]`
+*   **Impacto Visual:** Ao dar um resultado, o bot edita o embed original da sugestão, alterando sua cor e adicionando o motivo da decisão, informando a todos se a ideia foi aceita ou descartada.
 *   **Parâmetros:**
-    *   `id`: O número de identificação da sugestão (exibido no rodapé do embed da sugestão).
-    *   `decisao`: Escolha entre Aprovar ou Reprovar a ideia.
-    *   `motivo`: Explicação opcional para a decisão tomada.
-*   **Visual:** O embed original será editado para mostrar a cor verde (aprovado) ou vermelha (reprovado) e o motivo da administração.
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `id` | Integer | Sim | O número de identificação da sugestão (exibido no rodapé do embed). |
+| `decisao` | Escolha | Sim | `aprovar` ou `reprovar`. |
+| `motivo` | String | Não | Explicação detalhada da decisão. |
 
 ---
 
-## 📊 Benefícios do Sistema
+## 📊 Benefícios do Engajamento
 
 <AccordionGroup>
-  <Accordion title="Engajamento Comunitário">
-    Permitir que os jogadores votem nas sugestões ajuda a identificar quais mudanças são realmente desejadas pela maioria.
+  <Accordion title="Votação Democrática">
+    Permitir que os jogadores votem nas sugestões ajuda a identificar quais mudanças são realmente desejadas pela maioria, reduzindo riscos de atualizações impopulares.
   </Accordion>
-  <Accordion title="Organização da Staff">
-    Centralize todas as ideias em um único canal, evitando que sugestões valiosas se percam no chat geral.
+  <Accordion title="Histórico de Melhorias">
+    Ao usar o `/sugestao resultado`, você cria um log público de transparência, mostrando que a Staff ouve e responde à comunidade.
   </Accordion>
 </AccordionGroup>
+
+---
+
+## 🛡️ Permissões Necessárias
+
+| Operação | Cargos Sugeridos | Permissão Necessária |
+| :--- | :--- | :--- |
+| Iniciar Sistema | Administradores | Administrador |
+| Dar Resultado | Administradores | Administrador |
+
+<Note>
+  Para garantir a integridade do processo de decisão, todos os comandos de gestão de sugestões exigem a permissão de **Administrador**.
+</Note>
+

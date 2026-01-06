@@ -3,55 +3,74 @@ title: "Status de Servidores (/status)"
 description: "Monitoramento em tempo real de servidores Minecraft direto no seu Discord."
 ---
 
-O comando `/status` permite que você crie painéis dinâmicos que informam à sua comunidade se o seu servidor está online, quantos jogadores estão conectados e qual a versão ativa.
+O comando `/status` é uma ferramenta indispensável para manter sua comunidade informada sobre a saúde técnica dos seus servidores. Em vez de obrigar os jogadores a abrirem o jogo para checar se o servidor está online, você oferece um painel dinâmico e informativo diretamente no canal do Discord.
+
+O zNyx realiza consultas periódicas e atualiza o estado do servidor automaticamente, garantindo que a informação seja sempre confiável.
 
 ---
 
-## 📊 Configuração do Painel
+## 🏗️ Configuração do Painel
 
 ### `configurar`
-Define os endereços dos servidores que serão monitorados.
+Este subcomando é o primeiro passo para ativar o monitoramento. Ele vincula o bot ao endereço IP do seu servidor.
 
-*   **Uso:** `/status configurar servidores:<IP:Porta>`
 *   **Parâmetros:**
-    *   `servidores`: O endereço IP do seu servidor Minecraft. Você pode incluir a porta se for diferente da padrão (25565).
-    *   **Plano Plus:** Permite monitorar **1 servidor**.
-    *   **Plano Pro:** Permite monitorar **ilimitados servidores** no mesmo painel.
-*   **Exemplo:** `/status configurar servidores:jogar.znyx.com`
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `servidores` | String | Sim | O IP:Porta do servidor Minecraft (ex: jogar.znyx.com). |
+
+*   **Diferenciação de Planos:**
+    *   **Plano Plus:** Monitoramento de **01 Servidor**.
+    *   **Plano Pro:** Monitoramento de **Ilimitados Servidores** no mesmo painel.
 
 ---
 
 ### `iniciar`
-Envia o painel de status para o canal e inicia o ciclo de atualização.
+Envia o painel gráfico para o canal atual e inicia o ciclo de varredura.
 
-*   **Uso:** `/status iniciar`
-*   **Ciclo de Atualização:** O bot consulta o servidor e atualiza o embed automaticamente a cada **10 minutos**. Isso garante que as informações estejam sempre frescas sem sobrecarregar sua API.
+*   **Funcionamento:** Após ser iniciado, o bot entra em um ciclo de **10 minutos**. A cada ciclo, o bot faz um "ping" no servidor, coleta o número de jogadores e atualiza o embed original.
+*   **Informações Geradas:**
+    *   Status (Online/Offline/Manutenção).
+    *   MOTD (Mensagem do Dia).
+    *   Contagem de Jogadores (Online/Máximo).
+    *   Versão suportada.
 
 ---
 
 ### `parar`
-Interrompe o monitoramento e remove o painel de status do canal.
+Interrompe o monitoramento e limpa o canal.
 
 *   **Uso:** `/status parar`
-*   **Nota:** Use este comando se precisar reconfigurar os IPs ou mover o painel de canal.
+*   **Quando usar:** Antes de realizar mudanças de IP ou migrações de servidor para evitar mensagens de erro no canal.
 
 ---
 
 ## 🛠️ Modo Manutenção
 
 ### `manutencao ligar`
-<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO PRO**</Tooltip>
+<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO EXCLUSIVO DO PLANO PRO**</Tooltip>
 
-Ativa um estado visual de manutenção no painel de status, informando que o servidor está temporariamente inacessível para ajustes.
+Dê um descanso para seus jogadores sem causar pânico. O modo manutenção altera visualmente o painel para indicar que o servidor está offline por escolha da administração.
 
-*   **Uso:** `/status manutencao ligar texto:<Motivo>`
-*   **Vantagem:** Evita que os jogadores pensem que o servidor caiu por problemas técnicos quando, na verdade, é uma pausa planejada.
-*   **Exemplo:** `/status manutencao ligar texto:Limpando Banco de Dados`
+*   **Gatilho de Confiança:** Jogadores tendem a ser mais pacientes quando sabem que a indisponibilidade é planejada.
+*   **Parâmetros:**
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `texto` | String | Sim | O motivo da manutenção (ex: Atualização para a 1.21). |
 
 ---
 
-## 🔎 Detalhes Técnicos
+## 🔍 Detalhes Técnicos e Segurança
 
-<Card title="Como funciona o ping?" icon="network-wired">
-  O zNyx utiliza um protocolo de query padrão do Minecraft (SLP). Certifique-se de que o seu servidor não está bloqueando conexões externas de ping na porta configurada.
-</Card>
+<AccordionGroup>
+  <Accordion title="Como o Ping é realizado?">
+    O zNyx utiliza o protocolo SLP (Server List Ping). Sua host deve permitir conexões de entrada na porta configurada para que o bot possa ler as informações.
+  </Accordion>
+  <Accordion title="O Painel some se o bot cair?">
+    Não. O painel permanece no canal. Se o bot sofrer um **Auto-Restart**, ele retomará o monitoramento em até 5 segundos, atualizando o painel na próxima varredura.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Para uma estética impecável, combine a cor do seu servidor (usando o `/padrao cor`) com o Painel de Status.
+</Tip>

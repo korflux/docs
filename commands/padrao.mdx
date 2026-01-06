@@ -1,63 +1,95 @@
 ---
 title: "Configurações Globais (/padrao)"
-description: "Gerencie a identidade visual e as configurações base do bot no seu servidor."
+description: "Gerencie a identidade visual e as configurações base do zNyx no seu servidor."
 ---
 
-O comando `/padrao` é a porta de entrada para a personalização do zNyx. Com ele, você define como o bot se apresenta para a sua comunidade, ajustando as cores e assinaturas visuais.
+O comando `/padrao` é o alicerce da personalização do zNyx dentro da sua comunidade. Ele permite que administradores e gerentes moldem a identidade visual do bot, garantindo que cada interação, desde um simples aviso até a abertura de um ticket, esteja alinhada com a paleta de cores e a marca do seu servidor.
+
+A personalização é um dos pilares do zNyx, pois entendemos que a autoridade de um servidor de Minecraft é construída através de detalhes visuais consistentes.
 
 ---
 
-## 🛠️ Subcomandos Disponíveis
-
-Abaixo estão detalhados todos os subcomandos que compõem o sistema de configuração global.
+## 🛠️ Subcomandos em Detalhes
 
 ### 🎨 `cor`
-Define a cor lateral padrão (HEX) para todos os embeds enviados pelo bot no servidor. Isso inclui tickets, anúncios, e mensagens de sistema.
+Este subcomando define a **Cor Lateral (Hexadecimal)** que será aplicada em 100% dos embeds enviados pelo bot no servidor. Isso cria uma experiência de marca unificada para seus jogadores.
 
-*   **Uso:** `/padrao cor valor:<HEX>`
-*   **Parâmetros:** 
-    *   `valor`: O código de cores em formato Hexadecimal (ex: `#15cb18` para verde, `#FF0000` para vermelho).
-*   **Exemplo:** `/padrao cor valor:#15cb18`
+*   **Por que usar?** Uma cor consistente ajuda os jogadores a identificarem mensagens oficiais do bot instantaneamente, aumentando a confiança e a estética do chat.
+*   **Parâmetros:**
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `valor` | String (HEX) | Sim | O código hexadecimal da cor (ex: #007AFF). |
+
+*   **Exemplo de Uso:**
+```bash
+/padrao cor valor:#007AFF
+```
 
 <Tip>
-  Use sites como [HTML Color Codes](https://htmlcolorcodes.com/) para encontrar a cor exata da marca do seu servidor.
+  O zNyx suporta códigos com ou sem o símbolo `#`. Se você não sabe o Hex da sua marca, use um seletor de cores online para obter o código exato.
 </Tip>
 
 ---
 
 ### 📝 `rodape`
-<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO PRO**</Tooltip>
+<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO EXCLUSIVO DO PLANO PRO**</Tooltip>
 
-Permite definir um texto personalizado para o rodapé de todas as mensagens do bot.
+Permite a customização total do pequeno texto que aparece na base (footer) de cada embed do bot.
 
-*   **Uso:** `/padrao rodape texto:<Sua Mensagem>`
+*   **Impacto no Branding:** No Plano Pro, você pode remover qualquer menção ao zNyx e inserir o slogan do seu servidor, transformando o bot em uma ferramenta aparentemente nativa ("WhiteLabel").
 *   **Parâmetros:**
-    *   `texto`: O conteúdo que aparecerá na parte inferior de cada embed.
-*   **Exemplo:** `/padrao rodape texto:Rede zNyx - O melhor survival`
-*   **No Plano Plus:** Este campo é fixado com a assinatura "Powered by zNyx" e não pode ser alterado.
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `texto` | String | Sim | O texto que aparecerá no rodapé das mensagens. |
+
+*   **Exemplo de Uso:**
+```bash
+/padrao rodape texto:Rede zNyx - Sua Aventura Começa Aqui
+```
+
+<Warning>
+  No **Plano Plus**, o rodapé é fixado como "Powered by zNyx" para ajudar a manter nossos custos de infraestrutura reduzidos.
+</Warning>
 
 ---
 
 ### 🔍 `ver`
-Exibe um painel informativo com as configurações atuais aplicadas ao servidor.
+Uma ferramenta de diagnóstico rápido para verificar o estado atual das suas configurações globais.
 
-*   **Uso:** `/padrao ver`
-*   **O que é exibido:**
-    *   Cor definida atualmente (com um pequeno bloco visual).
-    *   Texto do rodapé configurado.
-    *   Versão ativa do bot (ex: `v2.4.1`).
-*   **Exemplo:** `/padrao ver`
+*   **O que ele faz?** Ele gera um embed de pré-visualização que mostra exatamente como as mensagens estão sendo configuradas no momento.
+*   **Informações Exibidas:**
+    *   **Cor Ativa:** Um bloco visual da cor configurada.
+    *   **Texto de Rodapé:** O conteúdo exato definido no comando anterior.
+    *   **Versão do Sistema:** A build estável que o bot está rodando (útil para suporte).
+
+*   **Exemplo de Uso:**
+```bash
+/padrao ver
+```
 
 ---
 
-## 🎚️ Níveis de Permissão
+## 🛡️ Permissões e Segurança
 
-| Subcomando | Cargos Necessários |
-| :--- | :--- |
-| `cor` | Administrador ou Gerente |
-| `rodape` | Administrador |
-| `ver` | Todos os membros com permissão de Gerenciar Servidor |
+| Operação | Cargos Sugeridos | Permissão Necessária |
+| :--- | :--- | :--- |
+| Definir Cor | Administradores | Administrador |
+| Alterar Rodapé | Administradores | Administrador |
+| Ver Configurações | Administradores | Administrador |
 
-<Warning>
-  Certifique-se de que o bot possui a permissão **Embed Links** ativa no canal para que as alterações visuais sejam aplicadas corretamente.
-</Warning>
+<Note>
+  Por motivos de segurança e integridade, todos os comandos do módulo global exigem que o usuário possua a permissão de **Administrador** no servidor.
+</Note>
+
+---
+
+## ❓ Perguntas Frequentes (FAQ)
+
+<AccordionGroup>
+  <Accordion title="A cor altera os comandos de outros bots?">
+    Não. As alterações feitas através do `/padrao cor` afetam única e exclusivamente os embeds enviados pelo zNyx.
+  </Accordion>
+  <Accordion title="Posso usar gradientes na cor?">
+    No momento, o Discord suporta apenas cores sólidas (Single HEX) para as laterais de embeds.
+  </Accordion>
+

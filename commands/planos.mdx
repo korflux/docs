@@ -1,40 +1,53 @@
 ---
 title: "Planos VIP (/planos)"
-description: "Exiba e venda seus produtos VIP de forma intuitiva e visual."
+description: "Página de vendas visual para os pacotes VIP do seu servidor."
 ---
 
-O comando `/planos` cria um menu de navegação onde os jogadores podem ver as vantagens e preços dos seus pacotes VIP, facilitando a conversão de vendas.
+O comando `/planos` transforma a forma como seus jogadores visualizam e consomem seus produtos. Em vez de listas de texto confusas, o zNyx gera uma interface de menu de seleção moderna e interativa, funcionando como uma vitrine profissional dentro do Discord.
+
+Uma apresentação clara das vantagens VIP é o primeiro passo para aumentar o faturamento do seu projeto.
 
 ---
 
-## 🛒 Comandos de Vendas
+## 🛒 Configuração e Lançamento
 
 ### `configurar`
-Define onde o painel de vendas será exibido de forma permanente.
+Vincula o sistema de vendas a um canal fixo.
 
-*   **Uso:** `/planos configurar chat:<#canal>`
+*   **Dica:** Escolha um canal institucional de alta visibilidade, como `#loja` ou `#vips`.
 *   **Parâmetros:**
-    *   `chat`: O canal oficial de informações VIP (ex: `#vips` ou `#loja`).
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `chat` | Canal (#) | Sim | O canal onde o painel de vendas residirá. |
 
 ---
 
 ### `iniciar`
-Envia o carrossel de planos VIP configurado.
+Dispara a criação do carrossel interativo de planos.
 
-*   **Uso:** `/planos iniciar`
-*   **Diferenças por Plano:**
-    *   **Plano Plus:** Você pode configurar até **2 opções** de planos (ex: VIP e VIP+).
-    *   **Plano Pro:** Você pode configurar até **10 opções** diferentes, ideal para servidores com múltiplas categorias de benefícios.
+*   **Funcionamento:** O bot envia um embed principal com um menu de seleção. Ao escolher um plano, o embed é editado instantaneamente para mostrar os benefícios específicos daquele slot.
+*   **Escalabilidade:**
+    *   **Plano Plus:** Suporte para até **02 Planos**.
+    *   **Plano Pro:** Suporte para até **10 Planos** simultâneos.
 
 ---
 
-## 💎 Experiência do Usuário
+## 💎 Experiência de Compra (Checkout)
 
-Ao executar o `/planos iniciar`, o bot gera um embed com um menu de seleção (Select Menu). Quando o usuário escolhe um plano, o embed é atualizado para mostrar:
-- Lista de Vantagens.
-- Preço e Durabilidade.
-- Botão "Comprar" que pode levar direto ao seu site ou gerar um PIX.
+Ao navegar pelo menu, o jogador terá acesso a:
+1.  **Vantagens:** Detalhamento exaustivo do que o VIP oferece.
+2.  **Preço:** Valor claro e visível.
+3.  **Botão de Ação:** Link direto para sua loja ou instrução de pagamento PIX.
 
-<Check>
-  Use este comando para manter sua vitrine de produtos organizada e sempre disponível para novos jogadores.
-</Check>
+---
+
+## 🛡️ Permissões Necessárias
+
+| Operação | Cargos Sugeridos | Permissão Necessária |
+| :--- | :--- | :--- |
+| Configurar Loja | Donos / Administradores | Administrador |
+| Iniciar Painel | Administradores | Administrador |
+
+<Note>
+  Por lidar com informações de faturamento e redirecionamento de links, todos os comandos deste módulo exigem a permissão de **Administrador**.
+</Note>

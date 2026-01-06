@@ -5,40 +5,64 @@ description: "Conecte seu servidor ao mundo externo através de fluxos n8n e Int
 
 <Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO EXCLUSIVO DO PLANO PRO**</Tooltip>
 
-O comando `/conexao` é a ponte tecnológica do zNyx. Ele permite que as mensagens enviadas em canais específicos sejam encaminhadas para Webhooks externos, possibilitando integrações com Agentes de IA e ferramentas de automação.
+O comando `/conexao` é a ponte tecnológica que transforma o Discord em um hub de automação. Ele permite que as mensagens enviadas em canais específicos sejam capturadas pelo zNyx e encaminhadas instantaneamente para Webhooks externos (como **n8n**, **Make** ou **Zapier**).
+
+Essa funcionalidade é o que permite a criação de Agentes de IA customizados que leem e respondem sua comunidade, ou o registro externo de dados para análise de marketing avançada.
 
 ---
 
 ## 🔗 Configurando Conexões
 
 ### `adicionar`
-Vincula um canal do Discord a um endpoint (URL) de Webhook do n8n ou similar.
+Vincula um canal do Discord a um endpoint de Webhook. 
 
-*   **Uso:** `/conexao adicionar canal:<#canal> modo:<mentions/all>`
+*   **Fluxo de Segurança:** Após executar o comando, o bot solicitará a URL do seu Webhook em uma conversa privada, garantindo que seu endpoint não seja exposto publicamente.
 *   **Parâmetros:**
-    *   `canal`: O canal de texto que será monitorado.
-    *   `modo`: 
-        *   `mentions`: O bot só envia para o Webhook quando mencionado.
-        *   `all`: Todas as mensagens do canal são enviadas.
-*   **Configuração de URL:** Após o comando, o bot solicitará a URL do Webhook de forma privada para sua segurança.
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `canal` | Canal (#) | Sim | O canal de texto que será monitorado. |
+| `modo` | Escolha | Sim | Define o gatilho de envio (ver abaixo). |
+
+*   **Modos de Captura:**
+    1.  **`mentions`:** O bot só encaminha a mensagem para o Webhook se ele for mencionado (@zNyx). Ideal para Agentes de Suporte via IA.
+    2.  **`all`:** Todas as mensagens enviadas no canal são encaminhadas. Útil para moderação via IA ou logs externos.
 
 ---
 
 ### `listar`
-Exibe todos os canais que possuem uma conexão ativa e para onde os dados estão sendo enviados.
+Exibe um painel com todas as conexões ativas no seu servidor.
 
-*   **Uso:** `/conexao listar`
+*   **Utilidade:** Permite identificar rapidamente quais canais estão enviando dados e para onde. Útil para auditorias de segurança.
 
 ---
 
-## 🤖 Casos de Uso com IA
+## 🤖 Cenários de Automação (Casos de Uso)
 
-Usando o `/conexao`, você pode transformar canais comuns em hubs de inteligência:
+As possibilidades são ilimitadas, mas aqui estão as integrações mais comuns feitas pelos nossos clientes:
 
-1.  **Suporte por IA:** Conecte um canal de `#duvidas` a um Agente de IA no n8n que lê sua base de conhecimento e responde os jogadores.
-2.  **Moderação Inteligente:** Envie mensagens para uma IA de análise de sentimento para detectar toxicidade antes que a Staff intervenha.
-3.  **Encaminhamento de Logs:** Mantenha um registro externo de todas as conversas importantes do seu servidor em um banco de dados próprio.
+<AccordionGroup>
+  <Accordion title="Agente de Suporte via ChatGPT">
+    Configure um canal `#duvidas-ia` no modo `mentions`. No seu n8n, receba a mensagem, envie para a API da OpenAI com o contexto do seu servidor, e use o zNyx via Webhook para responder ao jogador automaticamente.
+  </Accordion>
+  <Accordion title="Moderação de Toxicidade">
+    Configure um canal importante no modo `all`. Envie todas as mensagens para uma IA de análise de sentimento. Se uma mensagem for detectada como tóxica, sua automação pode alertar a Staff ou aplicar punições.
+  </Accordion>
+</AccordionGroup>
 
 <Warning>
-  O uso de Webhooks requer conhecimentos básicos de ferramentas de automação. O zNyx garante o envio dos dados, mas o processamento depende da sua configuração externa.
+  O zNyx é o facilitador do envio. A lógica de processamento, resposta e armazenamento dos dados deve ser construída por você na plataforma de automação escolhida.
 </Warning>
+
+---
+
+## ⚙️ Permissões Necessárias
+
+| Operação | Cargos Sugeridos | Permissão Necessária |
+| :--- | :--- | :--- |
+| Configurar Conexão | Administradores | Administrador |
+| Ver Conexões | Administradores | Administrador |
+
+<Note>
+  Por lidar com o tráfego de dados e endpoints externos, todos os comandos de integração exigem a permissão de **Administrador**. O zNyx não armazena o histórico das mensagens que passam pelo Webhook.
+</Note>
+

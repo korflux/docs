@@ -45,8 +45,8 @@
         {
             "group": "Políticas e Legal",
             "pages": [
-                "purchase-policy",
-                "privacy-policy"
+                "policy/purchase-policy",
+                "policy/privacy-policy"
             ]
         }
     ],

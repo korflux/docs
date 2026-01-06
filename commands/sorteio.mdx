@@ -5,45 +5,66 @@ description: "Gerencie sorteios profissionais com requisitos de cargo e proteç�
 
 <Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO EXCLUSIVO DO PLANO PRO**</Tooltip>
 
-O sistema de sorteios do zNyx foi desenvolvido para ser justo e automatizado, garantindo que apenas membros qualificados participem e que os resultados sejam auditáveis.
+O sistema de sorteios do zNyx foi desenvolvido para ser justo, seguro e totalmente automatizado. Em comunidades de Minecraft, sorteios são ferramentas vitais para manter o engajamento, mas também são alvos constantes de fraude e contas falsas. 
+
+O zNyx resolve isso através de um motor de sorteio que valida cada entrada em tempo real, garantindo que o prêmio vá para quem realmente merece.
 
 ---
 
 ## 🎁 Subcomandos Principais
 
 ### `criar`
-Abre o configurador completo de sorteio em uma interface de múltiplos passos ou modal.
+Inicia o processo de configuração de um novo sorteio. Ao contrário de comandos simples, o zNyx guia você através de um fluxo para garantir que nada seja esquecido.
 
-*   **Uso:** `/sorteio criar ganhadores:<N> data:<DD/MM/AAAA>`
-*   **O que você pode configurar:**
-    *   **Quantidade de Ganhadores:** Defina quantos usuários serão sorteados.
-    *   **Data e Hora:** Agende o término do sorteio com precisão.
-    *   **Requisitos de Cargo:** Exija que o usuário tenha um cargo específico (ex: VIP) para poder entrar.
-    *   **Antifraude:** Sistema que impede a participação de contas recém-criadas ou sem foto de perfil.
-*   **Exemplo:** `/sorteio criar ganhadores:1 data:25/12/2026`
+*   **Poder de Customização:** Você pode definir regras estritas para quem pode participar, evitando que o prêmio seja entregue a contas "fantasmas".
+*   **Parâmetros:**
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `ganhadores` | Número | Sim | Quantidade de pessoas que serão sorteadas (ex: 1). |
+| `data` | String | Sim | Data e hora do término (formato: DD/MM/AAAA HH:MM). |
+
+*   **Requisitos Adicionais (Configurados no Modal):**
+    *   **Cargos Obrigatórios:** Exija que o usuário tenha um cargo específico (ex: Membro Ativo ou VIP).
+    *   **Antifraude:** Ative a verificação de idade da conta ou foto de perfil.
 
 ---
 
 ### `reroll`
-Escolhe um novo vencedor caso o anterior não tenha cumprido os requisitos ou não tenha reclamado o prêmio.
+Sorteou alguém que não estava no Voice ou que não obedeceu a uma regra externa? O `reroll` escolhe um novo vencedor instantaneamente.
 
-*   **Uso:** `/sorteio reroll mensagem_id:<ID>`
+*   **Auditoria:** O bot anuncia claramente que um novo vencedor foi escolhido, mantendo a transparência com o resto da comunidade.
 *   **Parâmetros:**
-    *   `mensagem_id`: O ID da mensagem do sorteio que já foi finalizado.
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `mensagem_id` | Snowflake (ID) | Sim | O ID da mensagem do sorteio que já terminou. |
 
 ---
 
-## 🛡️ Segurança e Proteção
+## 🛡️ Mecanismos de Proteção (Anti-Fraude)
 
 <AccordionGroup>
-  <Accordion title="Proteção Anti-Selfbot">
-    Nossa engine detecta cliques excessivamente rápidos ou padrões de comportamento robótico, desqualificando automaticamente usuários suspeitos de usar bots para ganhar.
+  <Accordion title="Verificação de Contas Recentes">
+    O zNyx pode ser configurado para ignorar usuários que criaram a conta no Discord há menos de X dias, prevenindo que um único usuário crie 10 contas para ganhar o prêmio.
   </Accordion>
-  <Accordion title="Logs de Auditoria">
-    Todas as entradas e o momento exato do sorteio são registrados internamente, permitindo que a administração verifique a integridade do processo em caso de disputas.
+  <Accordion title="Proteção contra Self-Bots">
+    Nossa engine detecta padrões de cliques desumanos (cliques em milissegundos após o início). Esses usuários são marcados internamente e desqualificados graficamente no momento do sorteio.
   </Accordion>
 </AccordionGroup>
 
+<Tip>
+  Use o comando `/sorteio criar` em um canal de `#avisos` ou `#sorteios` para garantir que o máximo de pessoas veja e participe.
+</Tip>
+
+---
+
+## ⚙️ Permissões de Administração
+
+| Operação | Cargos Sugeridos | Permissão Necessária |
+| :--- | :--- | :--- |
+| Criar Sorteio | Administradores | Administrador |
+| Realizar Reroll | Administradores | Administrador |
+
 <Note>
-  O comando `/sorteio` não está disponível para usuários do Plano Plus. Considere o upgrade para engajar sua comunidade com brindes e eventos.
+  Todos os comandos de gestão de sorteios exigem a permissão de **Administrador**. O zNyx não entrega itens dentro do jogo automaticamente; a entrega deve ser feita manualmente pela sua equipe.
 </Note>
+

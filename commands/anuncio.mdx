@@ -3,72 +3,101 @@ title: "Anúncios e Vendas (/anuncio)"
 description: "Sistema profissional para comunicados visuais e automação de cobranças via PIX."
 ---
 
-O sistema de anúncios do zNyx foi arquitetado para substituir o uso de Webhooks manuais e complexos, oferecendo uma interface simplificada para criar mensagens visualmente impactantes e funcionais.
+O sistema de anúncios do zNyx foi arquitetado para substituir o uso de Webhooks manuais e complexos, oferecendo uma interface simplificada para criar mensagens visualmente impactantes e funcionais. No mundo dos servidores de Minecraft, a forma como você comunica novidades e ofertas define sua taxa de conversão e o engajamento da sua base.
+
+Este módulo não é apenas informativo; ele é uma ferramenta de vendas poderosa, permitindo desde o envio de um simples aviso até a geração de cobranças profissionais com botões de interação.
 
 ---
 
-## 📢 Subcomandos de Comunicação
+## 📢 Comunicação Visual
 
 ### `padrao`
-Abre um formulário (modal) interativo dentro do Discord para que você digite o conteúdo do anúncio.
+O subcomando principal para o envio de comunicados. Ao contrário de comandos de texto simples, o `padrao` abre um **Modal (Formulário)** para que você digite com calma o conteúdo do seu anúncio.
 
-*   **Uso:** `/anuncio padrao [cor:<HEX>]`
-*   **Funcionamento:** Ao executar o comando, uma janela popup aparecerá pedindo o **Título** e a **Descrição** do anúncio.
-*   **Suporte a Markdown:** Você pode usar negrito, itálico, listas e links no campo de descrição.
-*   **Parâmetros Opcionais:**
-    *   `cor`: Define uma cor lateral específica para este anúncio, ignorando a cor padrão do bot temporariamente.
+*   **Destaque:** Suporta formatação Markdown completa (negrito, listas, links) e oferece uma pré visualização organizada.
+*   **Parâmetros:**
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `cor` | String (HEX) | Não | Sobrescreve a cor padrão do bot para este anúncio específico. |
+
+*   **Exemplo de Uso:**
+```bash
+/anuncio padrao cor:#FF0000
+```
 
 ---
 
 ### `editar`
-<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO PRO**</Tooltip>
+<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO EXCLUSIVO DO PLANO PRO**</Tooltip>
 
-Permite alterar o conteúdo de um anúncio que já foi enviado, sem a necessidade de deletar e enviar novamente.
+Errou uma vírgula ou o preço mudou? O subcomando `editar` permite que você altere o conteúdo de um anúncio já enviado sem precisar deletá-lo.
 
-*   **Uso:** `/anuncio editar mensagem_id:<ID>`
+*   **Vantagem Pro:** Mantém as reações e o histórico da mensagem original, mantendo a credibilidade do anúncio.
 *   **Parâmetros:**
-    *   `mensagem_id`: O ID numérico da mensagem enviada pelo bot que você deseja modificar.
-*   **Como conseguir o ID:** Ative o "Modo Desenvolvedor" no seu Discord, clique com o botão direito na mensagem e selecione "Copiar ID da Mensagem".
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `mensagem_id` | Snowflake (ID) | Sim | O ID da mensagem que o bot enviou anteriormente. |
 
 ---
 
-## 💰 Subcomandos de Vendas e Promoção
+## 💰 Automação de Vendas
 
 ### `pix`
-Gera um card de pagamento profissional com um botão de "Copiar Chave PIX" integrado.
+Transforme seu canal de anúncios em um checkout de alta conversão. Este comando gera um card visual com todas as informações necessárias para um pagamento rápido.
 
-*   **Uso:** `/anuncio pix valor:<Valor> chave:<Sua Chave>`
-*   **Funcionalidades:**
-    *   Cria um QR Code visual (simulado).
-    *   Adiciona um botão que, ao ser clicado, copia a chave diretamente para a área de transferência do usuário.
-*   **Exemplo:** `/anuncio pix valor:50,00 chave:financeiro@servidor.com`
+*   **Redundância e Facilidade:** O bot gera um botão de **"Copiar Chave PIX"**. Quando o jogador clica, a chave vai direto para a área de transferência dele.
+*   **Parâmetros:**
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `valor` | String | Sim | O preço do produto (ex: R$ 50,00). |
+| `chave` | String | Sim | Sua chave PIX (E-mail, CPF, Aleatória, etc). |
+
+*   **Exemplo de Uso:**
+```bash
+/anuncio pix valor:50,00 chave:vendas@servidor.com
+```
 
 ---
 
 ### `promo`
-<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO PRO**</Tooltip>
+<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO EXCLUSIVO DO PLANO PRO**</Tooltip>
 
-Cria um card de promoção estilizado para incentivar vendas rápidas.
+Crie eventos de vendas relâmpago com gatilhos de urgência.
 
-*   **Uso:** `/anuncio promo desconto:<%> cupom:<Codigo>`
-*   **Funcionalidades:**
-    *   Exibe o percentual de desconto em destaque.
-    *   Inclui um campo para o código do cupom.
-    *   Gera um cronômetro visual (Markdown) para criar senso de urgência.
-*   **Exemplo:** `/anuncio promo desconto:20% cupom:ZNYX20`
+*   **Marketing embutido:** O comando gera um card estilizado que destaca a porcentagem de desconto e o código do cupom, incentivando a compra imediata.
+*   **Parâmetros:**
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `desconto` | String | Sim | O percentual de desconto (ex: 20%). |
+| `cupom` | String | Sim | O código que o jogador deve usar na loja. |
 
 ---
 
-## 💡 Dicas de Uso
+## 🚀 Guia de Boas Práticas
 
 <Steps>
-  <Step title="Prepare o texto">
-    Antes de usar o `/anuncio padrao`, tenha o texto em Markdown pronto para copiar e colar no modal.
+  <Step title="Markdown">
+    Use `### Título` para criar cabeçalhos dentro do seu anúncio e organizar as informações importantes.
   </Step>
-  <Step title="Combine com imagens">
-    Você pode adicionar links de imagens (Markdown) na descrição para tornar o anúncio ainda mais atrativo.
+  <Step title="Identidade Visual">
+    No `/anuncio pix`, use a cor da sua loja para passar mais profissionalismo no momento do pagamento.
   </Step>
-  <Step title="Foque na conversão">
-    Ao usar o `/anuncio pix`, certifique-se de que o valor e a chave estão corretos para evitar transtornos no suporte.
+  <Step title=" IDs de Mensagem">
+    Para usar o `editar`, ative o 'Modo Desenvolvedor' no seu Discord para copiar IDs facilmente.
   </Step>
 </Steps>
+
+---
+
+## 🛡️ Permissões e Segurança
+
+| Operação | Cargos Sugeridos | Permissão Necessária |
+| :--- | :--- | :--- |
+| Enviar Anúncio | Administradores | Administrador |
+| Editar Mensagem | Administradores | Administrador |
+| Gerar PIX | Administradores | Administrador |
+
+<Note>
+  Por motivos de segurança e para garantir a integridade financeira e visual do servidor, todos os comandos do módulo de anúncios exigem que o usuário possua a permissão de **Administrador**.
+</Note>
+

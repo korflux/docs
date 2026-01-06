@@ -5,34 +5,57 @@ description: "Colete feedbacks valiosos com estrelas e depoimentos da sua comuni
 
 <Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO EXCLUSIVO DO PLANO PRO**</Tooltip>
 
-O comando `/avaliacao` permite que você crie um ponto de coleta de depoimentos, onde os jogadores podem dar uma nota de 1 a 5 estrelas e escrever um breve comentário sobre a experiência no servidor ou o atendimento recebido.
+O comando `/avaliacao` é uma ferramenta de **Prova Social** indispensável para servidores que vendem VIPs ou itens. Ele permite que os jogadores deixem um depoimento público com uma nota de 1 a 5 estrelas, validando a qualidade do seu servidor para novos usuários.
+
+Avaliações reais e positivas reduzem a fricção no momento da compra e criam um ambiente de confiança e transparência.
 
 ---
 
-## ⭐ Como Funciona
+## ⭐ Como Funciona o Coletor
 
 ### `iniciar`
-Envia o embed de coleta de avaliações com botões de 1 a 5 estrelas.
+Este comando envia o Painel de Avaliações em um canal estratégico (ex: `#avaliacoes` ou `#depoimentos`).
 
-*   **Uso:** `/avaliacao iniciar`
-*   **Processo:**
-    1. O usuário clica na quantidade de estrelas desejada.
-    2. Um modal abre para o usuário escrever seu depoimento.
-    3. A avaliação é postada em um canal de "Prova Social" (configurado previamente) para que todos vejam.
+*   **Processo de Coleta:**
+    1. O jogador clica no botão correspondente à nota desejada (1 a 5 estrelas).
+    2. Um modal (janela) abre para que ele escreva um comentário detalhado sobre a experiência.
+    3. Após o envio, a avaliação é formatada em um embed elegante e postada automaticamente.
 
 ---
 
-## 📈 Por que usar Prova Social?
+## 📈 O Poder da Prova Social
 
 <CardGroup cols={2}>
-  <Card title="Credibilidade" icon="shield-check">
-    Novos jogadores sentem-se mais seguros ao entrar em um servidor com avaliações positivas reais.
+  <Card title="Engajamento" icon="star">
+    Jogadores sentem-se importantes ao terem sua opinião exibida publicamente pelo bot oficial.
   </Card>
-  <Card title="Melhoria Contínua" icon="chart-line">
-    Feedbacks negativos (se houver) ajudam a equipe a identificar pontos de atrito no servidor.
+  <Card title="Marketing Orgânico" icon="bullhorn">
+    Depoimentos positivos funcionam como propaganda gratuita, atraindo e retendo novos membros.
   </Card>
 </CardGroup>
 
+---
+
+## 🛡️ Permissões Necessárias
+
+| Operação | Cargos Sugeridos | Permissão Necessária |
+| :--- | :--- | :--- |
+| Iniciar Coletor | Administradores | Administrador |
+
 <Note>
-  Este comando é essencial para servidores que realizam vendas, pois as avaliações funcionam como o "Reclame Aqui" ou "Reviews" da sua loja.
+  Por ser um comando que altera canais públicos e gerencia a reputação do servidor, o `/avaliacao iniciar` é restrito a usuários com a permissão de **Administrador**.
 </Note>
+
+---
+
+## 🔬 Detalhes Técnicos
+
+<AccordionGroup>
+  <Accordion title="Onde as avaliações são postadas?">
+    Você define o canal de exibição durante o setup inicial do sistema. Recomendamos criar um canal somente-leitura chamado `#prova-social`.
+  </Accordion>
+  <Accordion title="Posso deletar avaliações falsas?">
+    Sim. Como as avaliações são mensagens comuns enviadas pelo bot, sua Staff com permissão de "Gerenciar Mensagens" pode deletar qualquer entrada que viole as regras do servidor.
+  </Accordion>
+</AccordionGroup>
+

@@ -5,28 +5,48 @@ description: "Transforme canais de texto em discussões organizadas através de 
 
 <Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO EXCLUSIVO DO PLANO PRO**</Tooltip>
 
-O comando `/topicos` ajuda a manter o chat do seu servidor organizado, forçando que cada nova mensagem enviada em um canal específico se torne o início de uma Thread (Tópico).
+O comando `/topicos` ajuda a manter o chat do seu servidor organizado e focado, utilizando a tecnologia de **Threads (Tópicos)** do Discord. Ele é ideal para canais de alta rotatividade onde cada mensagem gera uma discussão paralela intensa.
+
+Em vez de ter centenas de jogadores conversando no feed principal, o bot move a conversa para dentro de cada mensagem individualmente.
 
 ---
 
-## 🏗️ Configuração
+## 🏗️ Configuração e Operação
 
 ### `ativar`
-Habilita a criação automática de tópicos em um canal escolhido.
+Habilita o motor de criação automática de tópicos em um canal específico.
 
-*   **Uso:** `/topicos ativar canal:<#canal>`
+*   **Funcionamento:** A partir do momento da ativação, toda e qualquer mensagem enviada no canal (seja por jogadores ou outros bots) receberá automaticamente uma Thread vinculada. O bot também envia uma mensagem de boas-vindas dentro da Thread para incentivar o início do debate.
 *   **Parâmetros:**
-    *   `canal`: O canal de texto onde as Threads serão criadas automaticamente.
-*   **Funcionamento:** Toda vez que um jogador enviar uma mensagem nesse canal, o bot criará um tópico vinculado àquela mensagem e convidará os membros a discutirem ali.
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `canal` | Canal (#) | Sim | O canal onde os tópicos serão criados. |
 
 ---
 
-## 📂 Casos de Uso Recomendados
+## 📂 Casos de Uso Estratégicos
 
-1.  **Canal de Mídia:** Ideal para canais onde os jogadores postam prints ou vídeos. Assim, os comentários sobre a mídia ficam organizados dentro de cada tópico, sem poluir o feed principal.
-2.  **Sugestões Detalhadas:** Use em canais onde cada mensagem é uma proposta complexa que exige debate.
-3.  **Diário de Bordo:** Para membros da Staff postarem atualizações que precisam de feedback individual.
+<Steps>
+  <Step title="Canais de Mídia">
+    Evite o spam no canal de prints e vídeos. Quando um jogador postar uma imagem, os comentários sobre ela ficarão guardados na Thread da própria imagem.
+  </Step>
+  <Step title="Showcase de Itens">
+    Em servidores de RPG ou Survival, use em canais onde jogadores mostram suas construções ou itens raros para debate técnico.
+  </Step>
+  <Step title="Diários de Staff">
+    Mantenha o histórico de atualizações da Staff limpo, permitindo que o feedback dos jogadores fique segmentado por dia ou atualização.
+  </Step>
+</Steps>
 
-<Tip>
-  O uso de tópicos automáticos reduz o ruído visual e facilita o rastreamento de conversas específicas.
-</Tip>
+---
+
+## 🛡️ Permissões Necessárias
+
+| Operação | Cargos Sugeridos | Permissão Necessária |
+| :--- | :--- | :--- |
+| Ativar Tópicos | Administradores | Administrador |
+
+<Note>
+  Este comando altera o comportamento estrutural de um canal, por isso exige a permissão de **Administrador**. Certifique-se também de que o zNyx possui a permissão "Criar Tópicos Públicos" no canal alvo.
+</Note>
+

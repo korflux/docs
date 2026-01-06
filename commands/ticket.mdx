@@ -3,65 +3,90 @@ title: "Sistema de Tickets (/ticket)"
 description: "Gestão de atendimento organizada com categorias dinâmicas e logs automáticos."
 ---
 
-O sistema de tickets do zNyx é uma solução robusta para suporte ao cliente, permitindo que sua equipe gerencie dúvidas, denúncias e solicitações de forma centralizada e profissional.
+O sistema de tickets do zNyx é uma solução robusta para suporte ao cliente, permitindo que sua equipe gerencie dúvidas, denúncias e solicitações de forma centralizada e profissional. Um suporte eficiente é o que diferencia servidores amadores de grandes comunidades de Minecraft.
+
+Com o zNyx, cada atendimento é transformado em um canal privado, garantindo a privacidade do usuário e a organização da equipe de Staff.
 
 ---
 
-## ⚙️ Configuração Inicial
+## ⚙️ Configuração Estrutural
 
-Antes de abrir o sistema para o público, você precisa configurar a estrutura base onde os tickets serão criados e registrados.
+Antes de disponibilizar o suporte, é necessário definir o "esqueleto" do sistema.
 
 ### `configurar`
-Define os parâmetros fundamentais para o funcionamento do sistema.
+Este subcomando define os parâmetros fundamentais para o funcionamento. Sem ele, o bot não saberá onde criar os canais ou onde enviar os registros.
 
-*   **Uso:** `/ticket configurar categoria:<ID> logs:<#canal>`
 *   **Parâmetros:**
-    *   `categoria`: O ID da categoria do Discord onde os novos canais de ticket serão abertos.
-    *   `logs`: O canal de texto onde os **Transcripts** (cópias do chat) serão enviados após o encerramento de um ticket.
-*   **Aparência:** Você também pode configurar cores e mensagens personalizadas através deste comando.
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `categoria` | Snowflake (ID) | Sim | O ID da categoria onde os novos tickets serão criados. |
+| `logs` | Canal (#) | Sim | O canal onde os Transcripts (logs) serão enviados. |
+
+*   **Exemplo de Uso:**
+```bash
+/ticket configurar categoria:123456789 logs:#logs-suporte
+```
 
 ---
 
 ## 🛠️ Gestão de Categorias
 
-Categorias permitem segmentar o atendimento (ex: Suporte Técnico, Denúncias, Financeiro).
+As categorias permitem que o usuário escolha o motivo do contato (ex: Suporte Técnico, Financeiro, Denúncia).
 
 ### `categorias adicionar`
 Insere uma nova opção no menu de seleção do painel de tickets.
 
-*   **Uso:** `/ticket categorias adicionar emoji:<Emoji> titulo:<Texto>`
-*   **Exemplo:** `/ticket categorias adicionar emoji:🛠️ titulo:Suporte Técnico`
+*   **Destaque:** Você pode usar Emojis customizados para tornar o menu mais atraente.
+*   **Parâmetros:**
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| `emoji` | Emoji | Sim | O ícone que aparecerá ao lado do título. |
+| `titulo` | String | Sim | O nome da categoria (ex: Suporte Geral). |
 
 ### `categorias listar`
-Exibe todas as categorias atualmente cadastradas no seu sistema de tickets.
-
-*   **Uso:** `/ticket categorias listar`
+Exibe todas as categorias atualmente cadastradas para que você possa revisar ou IDs para exclusão.
 
 ---
 
 ## 🚀 Operação e Controle
 
 ### `iniciar`
-Envia a mensagem (embed) principal com o botão de abertura de ticket no canal atual.
+Envia o Painel de Atendimento (Embed com botão) para o canal desejado.
 
 *   **Uso:** `/ticket iniciar`
-*   **Dica:** Coloque este comando em um canal institucional como `#ajuda` ou `#suporte`.
-
-### `/fecharticket`
-Encerra a interação no canal de ticket atual.
-
-*   **Uso:** `/fecharticket` (dentro do canal do ticket)
-*   **Importante:** Ao usar este comando, o bot gerará automaticamente um arquivo HTML (Transcript) com toda a conversa e o enviará para o canal de logs configurado.
+*   **Recomendação:** Utilize em um canal limpo, preferencialmente chamado `#suporte` ou `#ajuda`.
 
 ---
 
-## 📎 Recursos Avançados
+## 🔒 Encerrando Atendimentos
+
+### `/fecharticket`
+Este é um comando independente e um dos mais importantes do módulo. Ele encerra o atendimento atual de forma definitiva.
+
+*   **Transcripts Automáticos:** No momento em que este comando é executado, o zNyx gera um arquivo HTML visualmente idêntico ao chat do Discord e o envia para o canal de logs configurado.
+*   **Segurança:** Garante que a conversa seja salva para futuras auditorias antes do canal ser deletado.
+
+*   **Exemplo de Uso:**
+```bash
+/fecharticket
+```
+
+---
+
+## 💎 Diferenciais Técnicos
 
 <AccordionGroup>
-  <Accordion title="Transcripts Automáticos">
-    Diferente de outros bots, o zNyx gera logs visualmente idênticos ao Discord, facilitando a revisão de conversas passadas sem precisar ler arquivos de texto puros.
+  <Accordion title="Transcripts em HTML">
+    Ao contrário de logs em TXT simples, nossos Transcripts mantêm a formatação, cores, imagens e avatares, permitindo uma leitura fluida do atendimento.
   </Accordion>
-  <Accordion title="Gestão de Cargos">
-    Os tickets são visíveis apenas para o usuário que o abriu e para os membros com os cargos de Staff configurados, garantindo total privacidade.
+  <Accordion title="Permissões Dinâmicas">
+    O bot gerencia as permissões do canal automaticamente, permitindo que apenas o Autor e a Staff configurada vejam o conteúdo.
   </Accordion>
 </AccordionGroup>
+
+<Note>
+  **Atenção às Permissões:**
+  - Comandos de configuração (`/ticket configurar`, `iniciar`, etc) exigem que o usuário seja um **Administrador**.
+  - O comando `/fecharticket` é a única exceção: as permissões para executá-lo são definidas dentro das configurações do próprio sistema de tickets, permitindo que cargos específicos de Staff (mesmo sem permissão de Admin) possam encerrar os atendimentos.
+</Note>
+
