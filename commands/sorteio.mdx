@@ -1,0 +1,49 @@
+---
+title: "Sorteios Avançados (/sorteio)"
+description: "Gerencie sorteios profissionais com requisitos de cargo e proteção anti-fraude."
+---
+
+<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO EXCLUSIVO DO PLANO PRO**</Tooltip>
+
+O sistema de sorteios do zNyx foi desenvolvido para ser justo e automatizado, garantindo que apenas membros qualificados participem e que os resultados sejam auditáveis.
+
+---
+
+## 🎁 Subcomandos Principais
+
+### `criar`
+Abre o configurador completo de sorteio em uma interface de múltiplos passos ou modal.
+
+*   **Uso:** `/sorteio criar ganhadores:<N> data:<DD/MM/AAAA>`
+*   **O que você pode configurar:**
+    *   **Quantidade de Ganhadores:** Defina quantos usuários serão sorteados.
+    *   **Data e Hora:** Agende o término do sorteio com precisão.
+    *   **Requisitos de Cargo:** Exija que o usuário tenha um cargo específico (ex: VIP) para poder entrar.
+    *   **Antifraude:** Sistema que impede a participação de contas recém-criadas ou sem foto de perfil.
+*   **Exemplo:** `/sorteio criar ganhadores:1 data:25/12/2026`
+
+---
+
+### `reroll`
+Escolhe um novo vencedor caso o anterior não tenha cumprido os requisitos ou não tenha reclamado o prêmio.
+
+*   **Uso:** `/sorteio reroll mensagem_id:<ID>`
+*   **Parâmetros:**
+    *   `mensagem_id`: O ID da mensagem do sorteio que já foi finalizado.
+
+---
+
+## 🛡️ Segurança e Proteção
+
+<AccordionGroup>
+  <Accordion title="Proteção Anti-Selfbot">
+    Nossa engine detecta cliques excessivamente rápidos ou padrões de comportamento robótico, desqualificando automaticamente usuários suspeitos de usar bots para ganhar.
+  </Accordion>
+  <Accordion title="Logs de Auditoria">
+    Todas as entradas e o momento exato do sorteio são registrados internamente, permitindo que a administração verifique a integridade do processo em caso de disputas.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  O comando `/sorteio` não está disponível para usuários do Plano Plus. Considere o upgrade para engajar sua comunidade com brindes e eventos.
+</Note>

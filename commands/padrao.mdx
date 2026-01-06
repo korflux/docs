@@ -1,0 +1,63 @@
+---
+title: "Configurações Globais (/padrao)"
+description: "Gerencie a identidade visual e as configurações base do bot no seu servidor."
+---
+
+O comando `/padrao` é a porta de entrada para a personalização do zNyx. Com ele, você define como o bot se apresenta para a sua comunidade, ajustando as cores e assinaturas visuais.
+
+---
+
+## 🛠️ Subcomandos Disponíveis
+
+Abaixo estão detalhados todos os subcomandos que compõem o sistema de configuração global.
+
+### 🎨 `cor`
+Define a cor lateral padrão (HEX) para todos os embeds enviados pelo bot no servidor. Isso inclui tickets, anúncios, e mensagens de sistema.
+
+*   **Uso:** `/padrao cor valor:<HEX>`
+*   **Parâmetros:** 
+    *   `valor`: O código de cores em formato Hexadecimal (ex: `#15cb18` para verde, `#FF0000` para vermelho).
+*   **Exemplo:** `/padrao cor valor:#15cb18`
+
+<Tip>
+  Use sites como [HTML Color Codes](https://htmlcolorcodes.com/) para encontrar a cor exata da marca do seu servidor.
+</Tip>
+
+---
+
+### 📝 `rodape`
+<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO PRO**</Tooltip>
+
+Permite definir um texto personalizado para o rodapé de todas as mensagens do bot.
+
+*   **Uso:** `/padrao rodape texto:<Sua Mensagem>`
+*   **Parâmetros:**
+    *   `texto`: O conteúdo que aparecerá na parte inferior de cada embed.
+*   **Exemplo:** `/padrao rodape texto:Rede zNyx - O melhor survival`
+*   **No Plano Plus:** Este campo é fixado com a assinatura "Powered by zNyx" e não pode ser alterado.
+
+---
+
+### 🔍 `ver`
+Exibe um painel informativo com as configurações atuais aplicadas ao servidor.
+
+*   **Uso:** `/padrao ver`
+*   **O que é exibido:**
+    *   Cor definida atualmente (com um pequeno bloco visual).
+    *   Texto do rodapé configurado.
+    *   Versão ativa do bot (ex: `v2.4.1`).
+*   **Exemplo:** `/padrao ver`
+
+---
+
+## 🎚️ Níveis de Permissão
+
+| Subcomando | Cargos Necessários |
+| :--- | :--- |
+| `cor` | Administrador ou Gerente |
+| `rodape` | Administrador |
+| `ver` | Todos os membros com permissão de Gerenciar Servidor |
+
+<Warning>
+  Certifique-se de que o bot possui a permissão **Embed Links** ativa no canal para que as alterações visuais sejam aplicadas corretamente.
+</Warning>

@@ -1,0 +1,40 @@
+---
+title: "Planos VIP (/planos)"
+description: "Exiba e venda seus produtos VIP de forma intuitiva e visual."
+---
+
+O comando `/planos` cria um menu de navegação onde os jogadores podem ver as vantagens e preços dos seus pacotes VIP, facilitando a conversão de vendas.
+
+---
+
+## 🛒 Comandos de Vendas
+
+### `configurar`
+Define onde o painel de vendas será exibido de forma permanente.
+
+*   **Uso:** `/planos configurar chat:<#canal>`
+*   **Parâmetros:**
+    *   `chat`: O canal oficial de informações VIP (ex: `#vips` ou `#loja`).
+
+---
+
+### `iniciar`
+Envia o carrossel de planos VIP configurado.
+
+*   **Uso:** `/planos iniciar`
+*   **Diferenças por Plano:**
+    *   **Plano Plus:** Você pode configurar até **2 opções** de planos (ex: VIP e VIP+).
+    *   **Plano Pro:** Você pode configurar até **10 opções** diferentes, ideal para servidores com múltiplas categorias de benefícios.
+
+---
+
+## 💎 Experiência do Usuário
+
+Ao executar o `/planos iniciar`, o bot gera um embed com um menu de seleção (Select Menu). Quando o usuário escolhe um plano, o embed é atualizado para mostrar:
+- Lista de Vantagens.
+- Preço e Durabilidade.
+- Botão "Comprar" que pode levar direto ao seu site ou gerar um PIX.
+
+<Check>
+  Use este comando para manter sua vitrine de produtos organizada e sempre disponível para novos jogadores.
+</Check>

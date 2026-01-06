@@ -1,0 +1,44 @@
+---
+title: "Automação e IA (/conexao)"
+description: "Conecte seu servidor ao mundo externo através de fluxos n8n e Inteligência Artificial."
+---
+
+<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO EXCLUSIVO DO PLANO PRO**</Tooltip>
+
+O comando `/conexao` é a ponte tecnológica do zNyx. Ele permite que as mensagens enviadas em canais específicos sejam encaminhadas para Webhooks externos, possibilitando integrações com Agentes de IA e ferramentas de automação.
+
+---
+
+## 🔗 Configurando Conexões
+
+### `adicionar`
+Vincula um canal do Discord a um endpoint (URL) de Webhook do n8n ou similar.
+
+*   **Uso:** `/conexao adicionar canal:<#canal> modo:<mentions/all>`
+*   **Parâmetros:**
+    *   `canal`: O canal de texto que será monitorado.
+    *   `modo`: 
+        *   `mentions`: O bot só envia para o Webhook quando mencionado.
+        *   `all`: Todas as mensagens do canal são enviadas.
+*   **Configuração de URL:** Após o comando, o bot solicitará a URL do Webhook de forma privada para sua segurança.
+
+---
+
+### `listar`
+Exibe todos os canais que possuem uma conexão ativa e para onde os dados estão sendo enviados.
+
+*   **Uso:** `/conexao listar`
+
+---
+
+## 🤖 Casos de Uso com IA
+
+Usando o `/conexao`, você pode transformar canais comuns em hubs de inteligência:
+
+1.  **Suporte por IA:** Conecte um canal de `#duvidas` a um Agente de IA no n8n que lê sua base de conhecimento e responde os jogadores.
+2.  **Moderação Inteligente:** Envie mensagens para uma IA de análise de sentimento para detectar toxicidade antes que a Staff intervenha.
+3.  **Encaminhamento de Logs:** Mantenha um registro externo de todas as conversas importantes do seu servidor em um banco de dados próprio.
+
+<Warning>
+  O uso de Webhooks requer conhecimentos básicos de ferramentas de automação. O zNyx garante o envio dos dados, mas o processamento depende da sua configuração externa.
+</Warning>

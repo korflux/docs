@@ -1,0 +1,74 @@
+---
+title: "Anúncios e Vendas (/anuncio)"
+description: "Sistema profissional para comunicados visuais e automação de cobranças via PIX."
+---
+
+O sistema de anúncios do zNyx foi arquitetado para substituir o uso de Webhooks manuais e complexos, oferecendo uma interface simplificada para criar mensagens visualmente impactantes e funcionais.
+
+---
+
+## 📢 Subcomandos de Comunicação
+
+### `padrao`
+Abre um formulário (modal) interativo dentro do Discord para que você digite o conteúdo do anúncio.
+
+*   **Uso:** `/anuncio padrao [cor:<HEX>]`
+*   **Funcionamento:** Ao executar o comando, uma janela popup aparecerá pedindo o **Título** e a **Descrição** do anúncio.
+*   **Suporte a Markdown:** Você pode usar negrito, itálico, listas e links no campo de descrição.
+*   **Parâmetros Opcionais:**
+    *   `cor`: Define uma cor lateral específica para este anúncio, ignorando a cor padrão do bot temporariamente.
+
+---
+
+### `editar`
+<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO PRO**</Tooltip>
+
+Permite alterar o conteúdo de um anúncio que já foi enviado, sem a necessidade de deletar e enviar novamente.
+
+*   **Uso:** `/anuncio editar mensagem_id:<ID>`
+*   **Parâmetros:**
+    *   `mensagem_id`: O ID numérico da mensagem enviada pelo bot que você deseja modificar.
+*   **Como conseguir o ID:** Ative o "Modo Desenvolvedor" no seu Discord, clique com o botão direito na mensagem e selecione "Copiar ID da Mensagem".
+
+---
+
+## 💰 Subcomandos de Vendas e Promoção
+
+### `pix`
+Gera um card de pagamento profissional com um botão de "Copiar Chave PIX" integrado.
+
+*   **Uso:** `/anuncio pix valor:<Valor> chave:<Sua Chave>`
+*   **Funcionalidades:**
+    *   Cria um QR Code visual (simulado).
+    *   Adiciona um botão que, ao ser clicado, copia a chave diretamente para a área de transferência do usuário.
+*   **Exemplo:** `/anuncio pix valor:50,00 chave:financeiro@servidor.com`
+
+---
+
+### `promo`
+<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO PRO**</Tooltip>
+
+Cria um card de promoção estilizado para incentivar vendas rápidas.
+
+*   **Uso:** `/anuncio promo desconto:<%> cupom:<Codigo>`
+*   **Funcionalidades:**
+    *   Exibe o percentual de desconto em destaque.
+    *   Inclui um campo para o código do cupom.
+    *   Gera um cronômetro visual (Markdown) para criar senso de urgência.
+*   **Exemplo:** `/anuncio promo desconto:20% cupom:ZNYX20`
+
+---
+
+## 💡 Dicas de Uso
+
+<Steps>
+  <Step title="Prepare o texto">
+    Antes de usar o `/anuncio padrao`, tenha o texto em Markdown pronto para copiar e colar no modal.
+  </Step>
+  <Step title="Combine com imagens">
+    Você pode adicionar links de imagens (Markdown) na descrição para tornar o anúncio ainda mais atrativo.
+  </Step>
+  <Step title="Foque na conversão">
+    Ao usar o `/anuncio pix`, certifique-se de que o valor e a chave estão corretos para evitar transtornos no suporte.
+  </Step>
+</Steps>

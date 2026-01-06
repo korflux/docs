@@ -30,16 +30,23 @@
         {
             "group": "Comandos",
             "pages": [
-                "commands/defaults",
-                "commands/announcements",
-                "commands/reviews",
-                "commands/connections",
-                "commands/giveaways",
+                "commands/padrao",
+                "commands/anuncio",
+                "commands/ticket",
                 "commands/status",
-                "commands/suggestions",
-                "commands/tickets",
-                "commands/planvip",
-                "commands/topics"
+                "commands/sorteio",
+                "commands/conexao",
+                "commands/sugestao",
+                "commands/avaliacao",
+                "commands/topicos",
+                "commands/planos"
+            ]
+        },
+        {
+            "group": "Políticas e Legal",
+            "pages": [
+                "purchase-policy",
+                "privacy-policy"
             ]
         }
     ],

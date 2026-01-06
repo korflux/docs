@@ -1,0 +1,67 @@
+---
+title: "Sistema de Tickets (/ticket)"
+description: "Gestão de atendimento organizada com categorias dinâmicas e logs automáticos."
+---
+
+O sistema de tickets do zNyx é uma solução robusta para suporte ao cliente, permitindo que sua equipe gerencie dúvidas, denúncias e solicitações de forma centralizada e profissional.
+
+---
+
+## ⚙️ Configuração Inicial
+
+Antes de abrir o sistema para o público, você precisa configurar a estrutura base onde os tickets serão criados e registrados.
+
+### `configurar`
+Define os parâmetros fundamentais para o funcionamento do sistema.
+
+*   **Uso:** `/ticket configurar categoria:<ID> logs:<#canal>`
+*   **Parâmetros:**
+    *   `categoria`: O ID da categoria do Discord onde os novos canais de ticket serão abertos.
+    *   `logs`: O canal de texto onde os **Transcripts** (cópias do chat) serão enviados após o encerramento de um ticket.
+*   **Aparência:** Você também pode configurar cores e mensagens personalizadas através deste comando.
+
+---
+
+## 🛠️ Gestão de Categorias
+
+Categorias permitem segmentar o atendimento (ex: Suporte Técnico, Denúncias, Financeiro).
+
+### `categorias adicionar`
+Insere uma nova opção no menu de seleção do painel de tickets.
+
+*   **Uso:** `/ticket categorias adicionar emoji:<Emoji> titulo:<Texto>`
+*   **Exemplo:** `/ticket categorias adicionar emoji:🛠️ titulo:Suporte Técnico`
+
+### `categorias listar`
+Exibe todas as categorias atualmente cadastradas no seu sistema de tickets.
+
+*   **Uso:** `/ticket categorias listar`
+
+---
+
+## 🚀 Operação e Controle
+
+### `iniciar`
+Envia a mensagem (embed) principal com o botão de abertura de ticket no canal atual.
+
+*   **Uso:** `/ticket iniciar`
+*   **Dica:** Coloque este comando em um canal institucional como `#ajuda` ou `#suporte`.
+
+### `/fecharticket`
+Encerra a interação no canal de ticket atual.
+
+*   **Uso:** `/fecharticket` (dentro do canal do ticket)
+*   **Importante:** Ao usar este comando, o bot gerará automaticamente um arquivo HTML (Transcript) com toda a conversa e o enviará para o canal de logs configurado.
+
+---
+
+## 📎 Recursos Avançados
+
+<AccordionGroup>
+  <Accordion title="Transcripts Automáticos">
+    Diferente de outros bots, o zNyx gera logs visualmente idênticos ao Discord, facilitando a revisão de conversas passadas sem precisar ler arquivos de texto puros.
+  </Accordion>
+  <Accordion title="Gestão de Cargos">
+    Os tickets são visíveis apenas para o usuário que o abriu e para os membros com os cargos de Staff configurados, garantindo total privacidade.
+  </Accordion>
+</AccordionGroup>

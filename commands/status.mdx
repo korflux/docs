@@ -1,68 +1,57 @@
 ---
-title: Status e Monitoramento
-sidebarTitle: Status
-description: 'Monitore seus servidores de Minecraft em tempo real'
+title: "Status de Servidores (/status)"
+description: "Monitoramento em tempo real de servidores Minecraft direto no seu Discord."
 ---
 
-Mantenha sua comunidade informada sem esforço manual. O sistema de monitoramento do zNyx cria painéis visuais que verificam o estado da sua rede a cada 10 minutos.
-
-## 📊 `/status`
-<span className="api-method-tag get">PLUS</span> <span className="api-method-tag get">PRO</span>
-
-Gerencia o painel de status auto-atualizável.
-
-<CardGroup cols={2}>
-  <Card title="Plano Plus" icon="star">
-    Monitoramento de **1 Endereço (IP)**.
-  </Card>
-  <Card title="Plano Pro" icon="crown">
-    Monitoramento **Ilimitado** (Múltiplos IPs).
-  </Card>
-</CardGroup>
-
-### Subcomandos
-| Subcomando | Descrição |
-| :--- | :--- |
-| `configurar` | Define os IPs, canal e aparência do painel. |
-| `iniciar` | Envia o painel e ativa o loop de atualização automática. |
-| `parar` | Interrompe o monitoramento e remove o painel. |
-
-### Configuração (Argumentos)
-| Opção | Tipo | Obrigatoriedade | Descrição |
-| :--- | :--- | :--- | :--- |
-| `canal` | Canal (#) | **Obrigatório** | O canal de texto onde o painel ficará fixado. |
-| `servidores` | Texto | **Obrigatório** | IPs dos servidores separados por vírgula (ex: `jogar.rede.com, rankup.rede.com`). |
-| `titulo` | Texto | Opcional | Título do Embed (ex: "Status da Rede"). |
-| `cor` | Texto (HEX) | Opcional | Cor da lateral do embed. |
-| `imagem` | Link (URL) | Opcional | Banner estático ou GIF para o topo do painel. |
-| `rodape` | Texto | Opcional <Tooltip tip="Recurso exclusivo do Plano Pro">**PRO**</Tooltip> | Texto personalizado no rodapé. |
-
-### Personalização de Ícones (Opcional)
-Você pode usar emojis personalizados do seu Discord para indicar o estado do servidor.
-| Opção | Tipo | Descrição |
-| :--- | :--- | :--- |
-| `icone_online` | Emoji | Ícone para servidor ligado (Padrão: 🟢). |
-| `icone_offline` | Emoji | Ícone para servidor desligado (Padrão: 🔴). |
-| `icone_manutencao` | Emoji | Ícone para modo manutenção (Padrão: 🟡). |
+O comando `/status` permite que você crie painéis dinâmicos que informam à sua comunidade se o seu servidor está online, quantos jogadores estão conectados e qual a versão ativa.
 
 ---
 
-## 🚧 `/manutencao`
-<span className="api-method-tag patch">PRO</span>
+## 📊 Configuração do Painel
 
-Controle manual sobre o status visual. Útil para quando você precisa fechar o servidor para atualizações e quer comunicar isso claramente no painel, sem que ele fique piscando "Offline".
+### `configurar`
+Define os endereços dos servidores que serão monitorados.
 
-### Subcomandos
-| Subcomando | Descrição |
-| :--- | :--- |
-| `ligar` | Coloca o painel em modo "Manutenção" (Ícone Amarelo) e pausa o ping. |
-| `desligar` | Retorna ao monitoramento normal (pingando os IPs). |
+*   **Uso:** `/status configurar servidores:<IP:Porta>`
+*   **Parâmetros:**
+    *   `servidores`: O endereço IP do seu servidor Minecraft. Você pode incluir a porta se for diferente da padrão (25565).
+    *   **Plano Plus:** Permite monitorar **1 servidor**.
+    *   **Plano Pro:** Permite monitorar **ilimitados servidores** no mesmo painel.
+*   **Exemplo:** `/status configurar servidores:jogar.znyx.com`
 
-### Argumentos
-| Opção | Tipo | Obrigatoriedade | Descrição |
-| :--- | :--- | :--- | :--- |
-| `texto` | Texto | Opcional | Motivo da manutenção para exibir no embed (ex: "Atualização de Natal"). |
+---
 
-<Info>
-**Nota Técnica:** Ao ativar o modo manutenção, o bot para de tentar conectar aos servidores temporariamente para economizar recursos e evitar falsos alertas de "Offline".
-</Info>
+### `iniciar`
+Envia o painel de status para o canal e inicia o ciclo de atualização.
+
+*   **Uso:** `/status iniciar`
+*   **Ciclo de Atualização:** O bot consulta o servidor e atualiza o embed automaticamente a cada **10 minutos**. Isso garante que as informações estejam sempre frescas sem sobrecarregar sua API.
+
+---
+
+### `parar`
+Interrompe o monitoramento e remove o painel de status do canal.
+
+*   **Uso:** `/status parar`
+*   **Nota:** Use este comando se precisar reconfigurar os IPs ou mover o painel de canal.
+
+---
+
+## 🛠️ Modo Manutenção
+
+### `manutencao ligar`
+<Tooltip tip="Recurso exclusivo do Plano Pro">**RECURSO PRO**</Tooltip>
+
+Ativa um estado visual de manutenção no painel de status, informando que o servidor está temporariamente inacessível para ajustes.
+
+*   **Uso:** `/status manutencao ligar texto:<Motivo>`
+*   **Vantagem:** Evita que os jogadores pensem que o servidor caiu por problemas técnicos quando, na verdade, é uma pausa planejada.
+*   **Exemplo:** `/status manutencao ligar texto:Limpando Banco de Dados`
+
+---
+
+## 🔎 Detalhes Técnicos
+
+<Card title="Como funciona o ping?" icon="network-wired">
+  O zNyx utiliza um protocolo de query padrão do Minecraft (SLP). Certifique-se de que o seu servidor não está bloqueando conexões externas de ping na porta configurada.
+</Card>
