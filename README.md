@@ -38,7 +38,7 @@ A experiência definitiva com automação, white-label total e recursos ilimitad
 | Recurso | Plano Plus | Plano Pro |
 | :--- | :---: | :---: |
 | **Investimento Mensal** | **R$ 39,90** | **R$ 79,90** |
-| Tempo de Resposta (SLA) | 24h | ⚡ 4h |
+| Tempo de Resposta (SLA) | Normal | ⚡ Prioritário |
 | Atualizações Globais | ✅ | ✅ |
 | Auto-Restart | ✅ | ✅ |
 | Monitoramento Proativo | ✅ | ✅ |
