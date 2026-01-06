@@ -15,11 +15,9 @@ Este módulo não é apenas informativo; ele é uma ferramenta de vendas poderos
 O subcomando principal para o envio de comunicados. Ao contrário de comandos de texto simples, o `padrao` abre um **Modal (Formulário)** para que você digite com calma o conteúdo do seu anúncio.
 
 *   **Destaque:** Suporta formatação Markdown completa (negrito, listas, links) e oferece uma pré visualização organizada.
-*   **Parâmetros:**
-
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `cor` | String (HEX) | Não | Sobrescreve a cor padrão do bot para este anúncio específico. |
+<ParamField query="cor" type="String (HEX)">
+  Sobrescreve a cor padrão do bot para este anúncio específico.
+</ParamField>
 
 *   **Exemplo de Uso:**
 ```bash
@@ -34,11 +32,9 @@ O subcomando principal para o envio de comunicados. Ao contrário de comandos de
 Errou uma vírgula ou o preço mudou? O subcomando `editar` permite que você altere o conteúdo de um anúncio já enviado sem precisar deletá-lo.
 
 *   **Vantagem Pro:** Mantém as reações e o histórico da mensagem original, mantendo a credibilidade do anúncio.
-*   **Parâmetros:**
-
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `mensagem_id` | Snowflake (ID) | Sim | O ID da mensagem que o bot enviou anteriormente. |
+<ParamField query="mensagem_id" type="Snowflake (ID)" required>
+  O ID da mensagem que o bot enviou anteriormente.
+</ParamField>
 
 ---
 
@@ -48,12 +44,13 @@ Errou uma vírgula ou o preço mudou? O subcomando `editar` permite que você al
 Transforme seu canal de anúncios em um checkout de alta conversão. Este comando gera um card visual com todas as informações necessárias para um pagamento rápido.
 
 *   **Redundância e Facilidade:** O bot gera um botão de **"Copiar Chave PIX"**. Quando o jogador clica, a chave vai direto para a área de transferência dele.
-*   **Parâmetros:**
+<ParamField query="valor" type="String" required>
+  O preço do produto (ex: R$ 50,00).
+</ParamField>
 
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `valor` | String | Sim | O preço do produto (ex: R$ 50,00). |
-| `chave` | String | Sim | Sua chave PIX (E-mail, CPF, Aleatória, etc). |
+<ParamField query="chave" type="String" required>
+  Sua chave PIX (E-mail, CPF, Aleatória, etc).
+</ParamField>
 
 *   **Exemplo de Uso:**
 ```bash
@@ -68,12 +65,13 @@ Transforme seu canal de anúncios em um checkout de alta conversão. Este comand
 Crie eventos de vendas relâmpago com gatilhos de urgência.
 
 *   **Marketing embutido:** O comando gera um card estilizado que destaca a porcentagem de desconto e o código do cupom, incentivando a compra imediata.
-*   **Parâmetros:**
+<ParamField query="desconto" type="String" required>
+  O percentual de desconto (ex: 20%).
+</ParamField>
 
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `desconto` | String | Sim | O percentual de desconto (ex: 20%). |
-| `cupom` | String | Sim | O código que o jogador deve usar na loja. |
+<ParamField query="cupom" type="String" required>
+  O código que o jogador deve usar na loja.
+</ParamField>
 
 ---
 

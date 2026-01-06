@@ -17,12 +17,13 @@ Essa funcionalidade é o que permite a criação de Agentes de IA customizados q
 Vincula um canal do Discord a um endpoint de Webhook. 
 
 *   **Fluxo de Segurança:** Após executar o comando, o bot solicitará a URL do seu Webhook em uma conversa privada, garantindo que seu endpoint não seja exposto publicamente.
-*   **Parâmetros:**
+<ParamField query="canal" type="Canal (#)" required>
+  O canal de texto que será monitorado.
+</ParamField>
 
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `canal` | Canal (#) | Sim | O canal de texto que será monitorado. |
-| `modo` | Escolha | Sim | Define o gatilho de envio (ver abaixo). |
+<ParamField query="modo" type="Escolha" required>
+  Define o gatilho de envio (ver abaixo).
+</ParamField>
 
 *   **Modos de Captura:**
     1.  **`mentions`:** O bot só encaminha a mensagem para o Webhook se ele for mencionado (@zNyx). Ideal para Agentes de Suporte via IA.
@@ -45,8 +46,8 @@ As possibilidades são ilimitadas, mas aqui estão as integrações mais comuns 
   <Accordion title="Agente de Suporte via ChatGPT">
     Configure um canal `#duvidas-ia` no modo `mentions`. No seu n8n, receba a mensagem, envie para a API da OpenAI com o contexto do seu servidor, e use o zNyx via Webhook para responder ao jogador automaticamente.
   </Accordion>
-  <Accordion title="Moderação de Toxicidade">
-    Configure um canal importante no modo `all`. Envie todas as mensagens para uma IA de análise de sentimento. Se uma mensagem for detectada como tóxica, sua automação pode alertar a Staff ou aplicar punições.
+  <Accordion title="Engajamento com a Comunidade">
+    Configure um canal importante no modo `all`. Envie todas as mensagens para uma IA que analisa o comportamento do chat. Use esses dados para criar eventos dinâmicos ou recompensar usuários que mantêm o chat ativo de forma positiva.
   </Accordion>
 </AccordionGroup>
 

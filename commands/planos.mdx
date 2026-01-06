@@ -15,11 +15,9 @@ Uma apresentação clara das vantagens VIP é o primeiro passo para aumentar o f
 Vincula o sistema de vendas a um canal fixo.
 
 *   **Dica:** Escolha um canal institucional de alta visibilidade, como `#loja` ou `#vips`.
-*   **Parâmetros:**
-
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `chat` | Canal (#) | Sim | O canal onde o painel de vendas residirá. |
+<ParamField query="chat" type="Canal (#)" required>
+  O canal onde o painel de vendas residirá.
+</ParamField>
 
 ---
 
@@ -28,7 +26,7 @@ Dispara a criação do carrossel interativo de planos.
 
 *   **Funcionamento:** O bot envia um embed principal com um menu de seleção. Ao escolher um plano, o embed é editado instantaneamente para mostrar os benefícios específicos daquele slot.
 *   **Escalabilidade:**
-    *   **Plano Plus:** Suporte para até **02 Planos**.
+    *   **Plano Plus:** Suporte para até **02 Planos** simultâneos.
     *   **Plano Pro:** Suporte para até **10 Planos** simultâneos.
 
 ---

@@ -25,13 +25,17 @@ Envia o painel de sugestões no canal atual. Este painel contém um botão inter
 Este é o comando de veredito, onde a administração define o destino de uma sugestão enviada.
 
 *   **Impacto Visual:** Ao dar um resultado, o bot edita o embed original da sugestão, alterando sua cor e adicionando o motivo da decisão, informando a todos se a ideia foi aceita ou descartada.
-*   **Parâmetros:**
+<ParamField query="id" type="Integer" required>
+  O número de identificação da sugestão (exibido no rodapé do embed).
+</ParamField>
 
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `id` | Integer | Sim | O número de identificação da sugestão (exibido no rodapé do embed). |
-| `decisao` | Escolha | Sim | `aprovar` ou `reprovar`. |
-| `motivo` | String | Não | Explicação detalhada da decisão. |
+<ParamField query="decisao" type="Escolha" required>
+  `aprovar` ou `reprovar`.
+</ParamField>
+
+<ParamField query="motivo" type="String">
+  Explicação detalhada da decisão.
+</ParamField>
 
 ---
 

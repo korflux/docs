@@ -17,12 +17,13 @@ O zNyx resolve isso através de um motor de sorteio que valida cada entrada em t
 Inicia o processo de configuração de um novo sorteio. Ao contrário de comandos simples, o zNyx guia você através de um fluxo para garantir que nada seja esquecido.
 
 *   **Poder de Customização:** Você pode definir regras estritas para quem pode participar, evitando que o prêmio seja entregue a contas "fantasmas".
-*   **Parâmetros:**
+<ParamField query="ganhadores" type="Número" required>
+  Quantidade de pessoas que serão sorteadas (ex: 1).
+</ParamField>
 
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `ganhadores` | Número | Sim | Quantidade de pessoas que serão sorteadas (ex: 1). |
-| `data` | String | Sim | Data e hora do término (formato: DD/MM/AAAA HH:MM). |
+<ParamField query="data" type="String" required>
+  Data e hora do término (formato: DD/MM/AAAA HH:MM).
+</ParamField>
 
 *   **Requisitos Adicionais (Configurados no Modal):**
     *   **Cargos Obrigatórios:** Exija que o usuário tenha um cargo específico (ex: Membro Ativo ou VIP).
@@ -34,11 +35,9 @@ Inicia o processo de configuração de um novo sorteio. Ao contrário de comando
 Sorteou alguém que não estava no Voice ou que não obedeceu a uma regra externa? O `reroll` escolhe um novo vencedor instantaneamente.
 
 *   **Auditoria:** O bot anuncia claramente que um novo vencedor foi escolhido, mantendo a transparência com o resto da comunidade.
-*   **Parâmetros:**
-
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `mensagem_id` | Snowflake (ID) | Sim | O ID da mensagem do sorteio que já terminou. |
+<ParamField query="mensagem_id" type="Snowflake (ID)" required>
+  O ID da mensagem do sorteio que já terminou.
+</ParamField>
 
 ---
 
@@ -46,7 +45,7 @@ Sorteou alguém que não estava no Voice ou que não obedeceu a uma regra extern
 
 <AccordionGroup>
   <Accordion title="Verificação de Contas Recentes">
-    O zNyx pode ser configurado para ignorar usuários que criaram a conta no Discord há menos de X dias, prevenindo que um único usuário crie 10 contas para ganhar o prêmio.
+    O zNyx pode ser configurado para ignorar usuários que criaram a conta no Discord há menos de **7 dias**, prevenindo que um único usuário crie 10 contas para ganhar o prêmio.
   </Accordion>
   <Accordion title="Proteção contra Self-Bots">
     Nossa engine detecta padrões de cliques desumanos (cliques em milissegundos após o início). Esses usuários são marcados internamente e desqualificados graficamente no momento do sorteio.

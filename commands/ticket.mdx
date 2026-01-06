@@ -16,12 +16,13 @@ Antes de disponibilizar o suporte, é necessário definir o "esqueleto" do siste
 ### `configurar`
 Este subcomando define os parâmetros fundamentais para o funcionamento. Sem ele, o bot não saberá onde criar os canais ou onde enviar os registros.
 
-*   **Parâmetros:**
+<ParamField query="categoria" type="Snowflake (ID)" required>
+  O ID da categoria onde os novos tickets serão criados.
+</ParamField>
 
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `categoria` | Snowflake (ID) | Sim | O ID da categoria onde os novos tickets serão criados. |
-| `logs` | Canal (#) | Sim | O canal onde os Transcripts (logs) serão enviados. |
+<ParamField query="logs" type="Canal (#)" required>
+  O canal onde os Transcripts (logs) serão enviados.
+</ParamField>
 
 *   **Exemplo de Uso:**
 ```bash
@@ -38,12 +39,13 @@ As categorias permitem que o usuário escolha o motivo do contato (ex: Suporte T
 Insere uma nova opção no menu de seleção do painel de tickets.
 
 *   **Destaque:** Você pode usar Emojis customizados para tornar o menu mais atraente.
-*   **Parâmetros:**
+<ParamField query="emoji" type="Emoji" required>
+  O ícone que aparecerá ao lado do título.
+</ParamField>
 
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `emoji` | Emoji | Sim | O ícone que aparecerá ao lado do título. |
-| `titulo` | String | Sim | O nome da categoria (ex: Suporte Geral). |
+<ParamField query="titulo" type="String" required>
+  O nome da categoria (ex: Suporte Geral).
+</ParamField>
 
 ### `categorias listar`
 Exibe todas as categorias atualmente cadastradas para que você possa revisar ou IDs para exclusão.

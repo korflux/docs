@@ -14,11 +14,9 @@ O zNyx realiza consultas periódicas e atualiza o estado do servidor automaticam
 ### `configurar`
 Este subcomando é o primeiro passo para ativar o monitoramento. Ele vincula o bot ao endereço IP do seu servidor.
 
-*   **Parâmetros:**
-
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `servidores` | String | Sim | O IP:Porta do servidor Minecraft (ex: jogar.znyx.com). |
+<ParamField query="servidores" type="String" required>
+  O IP:Porta do servidor Minecraft (ex: jogar.znyx.com).
+</ParamField>
 
 *   **Diferenciação de Planos:**
     *   **Plano Plus:** Monitoramento de **01 Servidor**.
@@ -54,11 +52,9 @@ Interrompe o monitoramento e limpa o canal.
 Dê um descanso para seus jogadores sem causar pânico. O modo manutenção altera visualmente o painel para indicar que o servidor está offline por escolha da administração.
 
 *   **Gatilho de Confiança:** Jogadores tendem a ser mais pacientes quando sabem que a indisponibilidade é planejada.
-*   **Parâmetros:**
-
-| Parâmetro | Tipo | Obrigatório | Descrição |
-| :--- | :--- | :---: | :--- |
-| `texto` | String | Sim | O motivo da manutenção (ex: Atualização para a 1.21). |
+<ParamField query="texto" type="String" required>
+  O motivo da manutenção (ex: Atualização para a 1.21).
+</ParamField>
 
 ---
 
