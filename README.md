@@ -43,8 +43,8 @@ A experiência definitiva com automação, white-label total e recursos ilimitad
 | Auto-Restart | ✅ | ✅ |
 | Monitoramento Proativo | ✅ | ✅ |
 | **Identidade & Branding** | | |
-| Identidade Visual (Embeds) | **zNyx Branding** (Fixo) | 🎨 **WhiteLabel Completo** |
-| Customização de Rodapé | ❌ Assinatura Fixa | ✅ Totalmente Livre |
+| Identidade Visual | 🎨 **WhiteLabel Completo** | 🎨 **WhiteLabel Completo** |
+| Customização de Rodapé | ❌ Assinatura Fixa (zNyx) | ✅ Totalmente Livre |
 | **Anúncios & Vendas** | | |
 | `/anuncio padrao` | ✅ (Modal) | ✅ (Modal) |
 | `/anuncio editar` | ❌ | ✅ |
